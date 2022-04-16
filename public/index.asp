@@ -17,7 +17,7 @@
         console.log("ciao");
         
         setTimeout(function(){
-            $("#text").text("ancora");
+            $("#text").text("ancorsa");
         });
     
     </script>
