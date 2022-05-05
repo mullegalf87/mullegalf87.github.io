@@ -1,0 +1,73 @@
+<html>
+<head>
+    <!-- dataresponsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jquery 3.5 jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- bootstrap 4.5 bootstrap-->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- fontawsome -->
+    <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+    <!-- font -->
+    <link href="http://fonts.cdnfonts.com/css/silk-serif?styles=108358" rel="stylesheet"> 
+    <link href="http://fonts.cdnfonts.com/css/futura-pt?styles=117667" rel="stylesheet">
+    <!-- lettering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"></script>
+</head>
+    <style>
+
+    </style>
+    <body>
+        
+        <div class="w-50" style="position:absolute;bottom:50%;right:50%;transform:translate(50%, 50%)">
+            <div>
+                <textarea class="form-control" id="append_calc" disabled></textarea>
+            </div>
+            <div class="d-flex flex-nowrap">
+                <button class="form-control" onclick="add_calc(1)">1</button>
+                <button class="form-control" onclick="add_calc(2)">2</button>
+                <button class="form-control" onclick="add_calc(3)">3</button>
+                <button class="form-control" onclick="add_calc('+')">+</button>
+            </div>
+            <div class="d-flex flex-nowrap">
+                <button class="form-control" onclick="add_calc(4)">4</button>
+                <button class="form-control" onclick="add_calc(5)">5</button>
+                <button class="form-control" onclick="add_calc(6)">6</button>
+                <button class="form-control" onclick="add_calc('-')">-</button>
+            </div>
+            <div class="d-flex flex-nowrap">
+                <button class="form-control" onclick="add_calc(7)">7</button>
+                <button class="form-control" onclick="add_calc(8)">8</button>
+                <button class="form-control" onclick="add_calc(9)">9</button>
+                <button class="form-control" onclick="add_calc('*')">x</button>
+            </div>
+            <div class="d-flex flex-nowrap">
+                <button class="form-control" onclick="add_calc('cl')">CL</button>
+                <button class="form-control" onclick="add_calc('=')">=</button>
+                <button class="form-control" onclick="add_calc('/')">/</button>
+            </div>
+        </div>
+    <script>
+        function add_calc(elem){
+            switch(elem){
+                case 'cl': $("#append_calc").empty();
+                break;
+                case '=':
+                    try {
+                        $("#append_calc").text(eval($("#append_calc").text()));
+                    } catch (error) {
+                        $("#append_calc").text("error");
+                        setTimeout(function(data){
+                            $("#append_calc").empty();
+                        },2000);
+                    }
+                break;
+                default:$("#append_calc").append(elem);
+                break;
+            }
+        }
+    </script>
+    </body>
+</html>
