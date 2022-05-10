@@ -9,65 +9,214 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- fontawsome -->
     <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
-    <!-- font -->
-    <link href="http://fonts.cdnfonts.com/css/silk-serif?styles=108358" rel="stylesheet"> 
-    <link href="http://fonts.cdnfonts.com/css/futura-pt?styles=117667" rel="stylesheet">
-    <!-- lettering -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"></script>
+    <!-- react -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
     <style>
 
     </style>
     <body>
-        
-        <div class="w-50" style="position:absolute;bottom:50%;right:50%;transform:translate(50%, 50%)">
-            <div>
-                <textarea class="form-control" id="append_calc" disabled></textarea>
-            </div>
-            <div class="d-flex flex-nowrap">
-                <button class="form-control" onclick="add_calc(1)">1</button>
-                <button class="form-control" onclick="add_calc(2)">2</button>
-                <button class="form-control" onclick="add_calc(3)">3</button>
-                <button class="form-control" onclick="add_calc('+')">+</button>
-            </div>
-            <div class="d-flex flex-nowrap">
-                <button class="form-control" onclick="add_calc(4)">4</button>
-                <button class="form-control" onclick="add_calc(5)">5</button>
-                <button class="form-control" onclick="add_calc(6)">6</button>
-                <button class="form-control" onclick="add_calc('-')">-</button>
-            </div>
-            <div class="d-flex flex-nowrap">
-                <button class="form-control" onclick="add_calc(7)">7</button>
-                <button class="form-control" onclick="add_calc(8)">8</button>
-                <button class="form-control" onclick="add_calc(9)">9</button>
-                <button class="form-control" onclick="add_calc('*')">x</button>
-            </div>
-            <div class="d-flex flex-nowrap">
-                <button class="form-control" onclick="add_calc('cl')">CL</button>
-                <button class="form-control" onclick="add_calc('=')">=</button>
-                <button class="form-control" onclick="add_calc('/')">/</button>
-            </div>
+
+        <div class="p-3">
+            <h1 id="demo" style="border: 2px solid red;">Ciao</h1>
+            <button class="btn btn-primary">Change color</button>
         </div>
-    <script>
-        function add_calc(elem){
-            switch(elem){
-                case 'cl': $("#append_calc").empty();
-                break;
-                case '=':
-                    try {
-                        $("#append_calc").text(eval($("#append_calc").text()));
-                    } catch (error) {
-                        $("#append_calc").text("error");
-                        setTimeout(function(data){
-                            $("#append_calc").empty();
-                        },2000);
-                    }
-                break;
-                default:$("#append_calc").append(elem);
-                break;
+        
+    <script type="text/babel">
+
+        //creare la classe
+        class Car {
+            //il parametro viene passato con il constructor
+            constructor(name) {
+                //all'object Car viene assegnato il key brand e il valore name
+                this.brand = name;
+            }
+            //si aggiunge un metodo alla classe Car
+            present = () => {
+                return 'I have a name car ' + this.brand;
+            };
+
+        }
+
+        //creare la seconda classe che erediterà la prima classe Car
+        class Model extends Car{
+            //il parametro viene passato con il constructor
+            constructor(name, model){
+                //questo metodo permette di accedere al parametro nome della classe Car
+                super(name);
+                //all'object Car viene assegnato il secondo key model e il valore model
+                this.model=model;
+            }
+
+            present_2 = () => {
+                return 'I have model car ' + this.model;
+            };
+
+        }
+
+        //START CLASS
+        //crea un object basato sulla classe Car, chiama la funzione, in questo caso la variabile inizia per const e non var come al solito
+        const mycar = new Car("Ford");
+        //mi ritorna l'object con key e valore
+        console.log(mycar);
+        //unisce la funzione present con la class Car, tale da fargli passare il valore
+        console.log(mycar.present());
+
+        //crea un object basato sulla classe Car, chiama la funzione, in questo caso la variabile inizia per const e non var come al solito
+        const mycar2 = new Model("Ford","Mustung");
+        //mi ritorna l'object con key e valore
+        console.log(mycar2);
+        //unisce la funzione present_2 con la class Model, tale da fargli passare il valore
+        console.log(mycar2.present_2());
+        //END CLASS
+
+        //START ARROW FUNCTION
+        //crea una funzione senza inserire function e tra parentesi ti riporta il parametro, ricorda la sintassi con =>. Addirittura se hai solo un parametro puoi omettere le parentesi
+        const hello = (saluto, name) => {
+
+            return saluto +" "+ name;
+
+        };
+        /* è la stessa cosa che scrivere        
+        var hello = function(saluto, name){
+
+            return saluto + name;
+
+        }*/
+        console.log(hello("ciao","caio"));
+
+        class Changecolor {
+
+            constructor(from_color){
+
+                this.color=from_color;
+
+            }
+
+            header = () => {
+
+               $("#demo").css("border","2px solid " + this.color);
+
+            }
+
+        }
+
+        $(".btn").click(function(){
+
+            const change_color=new Changecolor("green");
+            change_color.header();
+
+        });
+        //END ARROW FUNCTION
+
+        //START ARRAY METHOD
+        const array=['banana','fragole','lamponi'];
+        //mostra tutti gli elementi di un array e li appende
+        const myList = array.map((item)=>{
+            $("#demo").append("<p>"+(item)+"</p>");
+        });
+        //la stessa cosa si potrebbe scrivere come segue
+        // array.map(function(item){
+        //     $("#demo").append("<p>"+(item)+"</p>");
+        // });
+        //END ARRAY METHOD
+
+
+        //START DESTRUCTURING ARRAY METHOD
+        //destrutturare un array per ritornare un dato valore
+        const calculate = (a,b) => {
+
+            const addition=a+b;
+            const substract=a-b;
+            const multiply=a*b;
+            const divide=a/b;
+
+            return [addition, substract, multiply, divide];
+
+        };
+
+        const [addition, substract, multiply, divide] = calculate(6,2)
+
+        console.log(addition);
+
+        const vehicles = ['mustang', 'f-150', 'expedition'];
+
+        const [car, truck, suv] = vehicles;
+
+        console.log(car)
+        //END DESTRUCTURING ARRAY METHOD
+
+        //START DESTRUCTURING OBJECT METHOD
+        ///destrutturare un object per ritornare un dato valore di una key
+        const vehicleOne = {
+            brand: 'Ford',
+            model: 'Mustang',
+            type: 'car',
+            year: 2021, 
+            color: 'red',
+            address:{
+                state: 'Italy',
+                zip: '90100'
             }
         }
+
+        const read_vehicle = ({brand, model, type, year, color, address:{state}}) =>{
+
+            const message = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + ' ' + state;
+
+            console.log(message);
+
+        }
+
+        read_vehicle(vehicleOne);
+        //END DESTRUCTURING OBJECT METHOD
+
+        //START SPREAD OPERATOR
+        //...servono per combinare array e obejct
+        const array_a=[1,2,3,4];
+        const array_b=[5,6,7,8];
+        const combine_array_ab=[...array_a, ...array_b];
+        console.log(combine_array_ab);
+
+        const object_a = {
+            brand: 'Ford',
+            model: 'Mustang',
+            color: 'red'
+        }
+
+        const object_b = {
+            type: 'car',
+            year: 2021, 
+            color: 'yellow'
+        }
+        
+        const combine_object_ab={...object_a, ...object_b};
+        console.log(combine_object_ab);
+        //END SPREAD OPERATOR
+
+        //START OPERATORE TERNARIO
+        const text="prova";
+        text=="prova" ? console.log("corretto") : console.log("sbagliato");
+        //si potrebbe scrivere anche come segue.
+        // if(text=="prova"){
+        //     console.log("corretto");
+        // }else{
+        //     console.log("sbagliato");
+        // }
+        //END OPERATORE TERNARIO
+    </script>
+
+    <!-- come ricavare dati da altri file riportanto type=module e dopo avere creato i due file -->
+    <script type="module">
+        //import named
+        import { name, age } from "../example/person.js";
+        console.log(name)
+
+        //import default
+        import message from "../example/message.js";
+        console.log(message());
     </script>
     </body>
 </html>
