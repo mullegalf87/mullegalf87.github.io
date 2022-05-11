@@ -23,8 +23,16 @@
             <h1 id="demo" style="border: 2px solid red;">Ciao</h1>
             <button class="btn btn-primary">Change color</button>
         </div>
+
+        <div class="p-3">
+            <h1 id="root" style="border: 2px solid black;">Root</h1>
+        </div>
         
     <script type="text/babel">
+
+        // Le variabili var possono essere aggiornate o ri-dichiarate dentro il loro ambito globale o di funzione; 
+        // le variabili let possono essere aggiornate ma non re-dichiarate dentro il loro ambito di blocco; 
+        // le variabili const non possono essere né aggiornate né re-dichiarate dentro il loro ambito di blocco; 
 
         //creare la classe
         class Car {
@@ -206,6 +214,44 @@
         //     console.log("sbagliato");
         // }
         //END OPERATORE TERNARIO
+
+        //START RENDER HTML
+        //questa funzione render permette di prendere l'elemento del codice e di mostrarlo dentro il dom tag html
+        const myelement =  <h1>append render</h1>;
+        ReactDOM.render(myelement, $("#root")[0]);
+        //END RENDER HTML
+        
+        //START CODING JSX
+        //permette di appendere elementi html dentro il dom tag html senza createElement() o appendChild();, sfruttando gli operatori dentro le parentesi{}. Ricordati che la classe nel dom si dichiara con className.
+        const num=5;
+        let textjsx;
+        num < 10 ? textjsx="yes jsx" : textjsx="no jsx";
+        const myElement = <h1 className="myclass">{textjsx} {5+5} times than other!</h1>;
+        const root = ReactDOM.createRoot( $("#root")[0]);
+        root.render(myElement);
+        //END CODING JSX
+
+        //START REACT COMPONENT (PROPS)
+        //Funzionano come le classiche funzioni, ma con più codice
+        
+        const Garage = (props) => {
+
+            return <h1>Il mio nome è {props.type} e la mia auto è una {props.object.name}</h1>
+
+        }
+
+        const Car_2 = (props) =>{
+
+            const carInfo = { name: "Ford", model: "Mustang" };
+
+            return <h2>Come ti chiami?<Garage type={props.color} object={carInfo}/> </h2>
+
+        }
+
+        const root_2 = ReactDOM.createRoot($("#root")[0]);
+
+        root_2.render(<Car_2 color="green"/>);
+        //END REACT COMPONENT (PROPS)
     </script>
 
     <!-- come ricavare dati da altri file riportanto type=module e dopo avere creato i due file -->
