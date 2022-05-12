@@ -34,6 +34,8 @@
         // le variabili let possono essere aggiornate ma non re-dichiarate dentro il loro ambito di blocco; 
         // le variabili const non possono essere né aggiornate né re-dichiarate dentro il loro ambito di blocco; 
 
+        // Le maiuscole e le posizioni sono fondamentali di ogni cosa
+
         //creare la classe
         class Car {
             //il parametro viene passato con il constructor
@@ -233,7 +235,7 @@
 
         //START REACT COMPONENT (PROPS)
         //Funzionano come le classiche funzioni, ma con più codice
-        
+        // se il parametro è passato dal render come color allora mettere come parametro props
         const Garage = (props) => {
 
             return <h1>Il mio nome è {props.type} e la mia auto è una {props.object.name}</h1>
@@ -252,6 +254,116 @@
 
         root_2.render(<Car_2 color="green"/>);
         //END REACT COMPONENT (PROPS)
+
+        //START REACT EVENT
+
+        function Click_button(){
+
+            const shot= (variable,event) => {
+
+                alert(variable);
+                console.log(event.type);
+
+            }
+
+            return (<button onClick={(event)=>shot("goal",event)}>click shot</button>);
+
+        }
+
+        const shoot_html=ReactDOM.createRoot($("#root")[0]);
+        shoot_html.render(<Click_button/>);
+        //END REACT EVENT
+
+        //START IF STATEMENT
+        function Missedgoal(){
+
+            alert("goal mancato");
+
+        }
+
+        function Takegoal(){
+
+            alert("goal segnato");
+            
+        }
+
+        //semplice funzione con if else con props
+        function Checkgoal(props){
+            
+            const verify=props.goal;
+            console.log(verify)
+            if(verify){
+
+                return Takegoal();
+
+            } else{
+
+                return Missedgoal();
+
+            }
+
+        }
+        const see_goal=ReactDOM.createRoot($("#root")[0]);
+        see_goal.render(<Checkgoal goal={true}/>);
+
+        //funzione if else con props array and logical &&, questo operatore logico significa appendi ciò che è vero
+        function Checkcars(props){
+
+            const verify_cars=props.cars;
+
+            return (
+                //gli fa capire che sta aprendo un html content e può applicare al suo interno espressioni ecc.
+                <>
+                <h1>Quante macchine possiedi?</h1>
+                { verify_cars.length <= 0 &&
+                    
+                    <h1>Non ho macchine</h1>
+                    //o con operatore ternario
+                    // verify_cars.length > 0 ? <h1>Ho {verify_cars.length} macchine</h1> : <h1>Non ho macchine</h1>
+
+                }
+                <h1>Ho {verify_cars.length} macchine</h1>
+                
+
+                </>
+                );
+
+        }
+
+        const array_cars=['Ford', 'BMW', 'Audi'];
+        const see_cars=ReactDOM.createRoot($("#root")[0]);
+        see_goal.render(<Checkcars cars={array_cars}/>);
+        //END IF STATEMENT
+
+        //START REACT LIST
+        //lista con array o object è semplice
+        function Return_map_list(props){
+            return(
+                <>
+                <li>io sono la macchina id {props.id_list} e il mio nome è {props.brand_list}</li>
+                </>
+            );
+        }
+
+        function Map_list(){
+
+            const array_list = [
+                {id: 1, brand: 'Ford'},
+                {id: 2, brand: 'BMW'},
+                {id: 3, brand: 'Audi'}
+            ];
+            return(
+                <>
+                <ul>{array_list.map((car)=><Return_map_list id_list={car.id} brand_list={car.brand}/>)}</ul>
+                </>
+            );
+
+        }
+
+        const list=ReactDOM.createRoot($("#root")[0]);
+        list.render(<Map_list/>);
+        //END REACT LIST
+
     </script>
 
     <!-- come ricavare dati da altri file riportanto type=module e dopo avere creato i due file -->
