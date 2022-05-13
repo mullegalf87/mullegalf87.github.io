@@ -27,6 +27,10 @@
         <div class="p-3">
             <h1 id="root" style="border: 2px solid black;">Root</h1>
         </div>
+
+        <div class="p-3">
+            <h1 id="format" style="border: 2px solid black;">Format</h1>
+        </div>
         
     <script type="text/babel">
 
@@ -359,10 +363,35 @@
             );
 
         }
-
+        
         const list=ReactDOM.createRoot($("#root")[0]);
         list.render(<Map_list/>);
         //END REACT LIST
+
+        const click_submit=(event)=>{
+            event.preventDefault();
+            alert(event);
+
+        }
+        
+        function Myform(){
+
+            return(
+                <>
+                <form onSumbit={click_submit}>
+                    <label>Enter your name:</label>
+                    <input type="text" onChange={(e)=> setName(e.target.value)}/>
+                    <input type="submit"/>
+                </form>
+                </>
+            );
+
+        }
+
+        //START FORM
+        const format=ReactDOM.createRoot($("#format")[0]);
+        format.render(<Myform/>);
+        //END FORM
 
     </script>
 
