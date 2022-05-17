@@ -17,12 +17,13 @@
 <body>
     <div class="p-3">
 
-        <h6>1) Variabili globali e locali</h6> 
+        <h6>1) Variabili globali e locali e costanti</h6> 
             <label>
                 <?php
 
                     $x=5; //global scope - fuori dalle funzioni, al termine della funzione verrà cancellata;
-
+                    define("ciao","Welcome to W3Schools.com"); //global scope come costante
+                    define("cars",["bmc", "merceds", "lorens"]); //global scope come costante array
                     myTest();
 
                     function myTest(){
@@ -30,9 +31,12 @@
                         $y=6;//local scope - dentro le funzioni, al termine della funzione verrà cancellata;
                         global $x; //global scope - richiami la variabile globale oppure con $GLOBALS['x']
                         $x=$x+$y;
+                        echo ciao." costante dentro una funzione <br>";  //costante string
 
                     }
 
+                    
+                    echo cars[0]." costante dentro una funzione <br>"; //costante array
                     echo "totale tra una variabile globale e locale: <br>";
                     echo $x;
                     echo "<br>";
@@ -149,13 +153,83 @@
                 echo pi();
                 echo "<br>";
 
-                echo "minimo tra i numeri";
-                echo(min(0, 150, 30, 20, -8, -200));  // returns -200
+                echo "minimo tra i numeri: <br>";
+                echo min(0, 150, 30, 20, -8, -200);  // returns -200
+                echo "<br>";
 
-                echo "massimo tra i numeri";
-                echo(max(0, 150, 30, 20, -8, -200));  // returns 150
+                echo "massimo tra i numeri: <br>";
+                echo max(0, 150, 30, 20, -8, -200);  // returns 150
+                echo "<br>";
 
+                echo "ritorna il numero assoluto positivo di un numero: <br>";
+                echo abs(-6.7);
+                echo "<br>";
 
+                echo "ritorna la radice quadrata di un numero: <br>";
+                echo sqrt(64);
+                echo "<br>";
+
+                echo "ritorna l'arrotondamento di un numero: <br>";
+                echo round(0.60);
+                echo "<br>";
+
+                echo "ritorna un numero randomico: <br>";
+                echo rand(1, 5);//inserisci da quale numero a quale deve estrarre il numero randomico
+                echo "<br>";
+
+            ?>
+        </label>
+
+        <h6>7) Loop</h6>
+        <label>
+            <?php
+
+                $x = 0;
+
+                while($x <= 100) {
+                    echo "The number is: $x <br>";
+                    $x+=10;
+                }
+                
+                //si può anche scrivere
+                // do{
+                //     echo "The number is: $x <br>";
+                //     $x+=10;
+                // }while($x <= 100);
+
+                //si può anche scrivere
+                // for ($x=0; $x <=100 ; $x+=10) { 
+                //     echo "The number is: $x <br>";
+                // }
+
+                $colors_array = array("red", "green", "blue", "yellow");
+                $age_object = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+                foreach ($colors_array as $key) {
+                    echo "The color is: $key <br>";
+                }
+
+                foreach ($age_object as $key=>$value) {
+                    echo "The person is: $key and age: $value <br>";
+                }
+                
+            ?>
+        </label>
+
+        <h6>8) Break/continue</h6>
+        <label>
+            <?php
+
+                for ($i=0; $i < 10 ; $i++) { 
+                    if ($i==4) {
+                        break; //l'iterazione si ferma al 4, come il do while
+                        //continue;//l'iterazione arriva al 4 e lo salta ma continua fino a concludere il ciclo for
+                    }
+
+                    echo "ciclo $i <br>";
+                }
+                
+               
             ?>
         </label>
 
