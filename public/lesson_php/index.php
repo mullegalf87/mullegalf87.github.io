@@ -228,8 +228,182 @@
 
                     echo "ciclo $i <br>";
                 }
-                
+
+            ?>
+        </label>
+
+        <h6>9) Funzioni</h6>
+        <label>
+            <?php 
+                //la funzione trasforma il secondo argomento da una stringa ad un numero, prendendo il primo numero
+                function add_number(int $a, int $b){
+
+                    return $a + $b;
+
+                }
+
+                echo add_number(5,"5 day")."<br>";
+                //se la funzione chiamata non riporta il parametro (argomento), di default viene attribuito da quello riportato
+                function minheight(int $minheight=50){
+
+                    return $minheight;
+
+                }
+
+                echo minheight(350)."<br>";
+                echo minheight()."<br>";
+                echo minheight(150)."<br>";
+                echo minheight(250)."<br>";
+
+                //se alla fine della funzione prima del { riporto : int o float, ritornerà il valore intero o decimale, indipendentemente se gli argomenti passati dichiarati sono int o float
+                function sum_number(int $a, float $b) : int{
+
+                    $z=$a+$b;
+                    return $z;
+
+                }
+
+                echo "5+6.3= ".sum_number(5,6.3)."<br>";
+                echo "4+6.3= ".sum_number(4,6.2)."<br>";
+                echo "8+6.1= ".sum_number(8,6.1)."<br>";
+
+                //se metti prima del parametro la & lui riporterà lui ritornera il valore come variabile esterna
+                function add_number_5(&$value){
+
+                    return $value+=5;
+
+                }
+
+                $num=2;
+                add_number_5($num);
+                echo $num."<br>";
+
+            ?>
+        </label>
+
+        <h6>10) Array/Object</h6>
+        <label>
+            <?php
+                //semplice array
+                $cars=array("volvo", "bmw", "mercedes");
+
+                $qnt_cars=count($cars);
+
+                echo "quante macchine? ".$qnt_cars."<br>";
+
+                for($i=0; $i < $qnt_cars; $i++){
+
+                    echo $cars[$i]."<br>";
+
+                }
+
+                //associated array (sembra un object)
+                $ages=array("luca"=>32, "luigi"=>43, "marco"=>22);
+
+                foreach($ages as $key=>$value){
+
+                    echo "il nome è :".$key." e l'età è ".$value."<br>";
+
+                }
+
+                //multidimensional array, dentro un array c'è uno o più array
+                $auto = array (
+                    array("Volvo",22,18),
+                    array("BMW",15,13),
+                    array("Saab",5,2),
+                    array("Land Rover",17,15)
+                  );
+
+                $qnt_array_auto=count($auto);
+
+                for ($i=0; $i < $qnt_array_auto; $i++) { 
+
+                    $qnt_auto=count($auto[$i]);
+
+                    for ($y=0; $y < $qnt_auto; $y++) { 
+
+                        echo $auto[$i][$y]."<br>";
+ 
+                    }
+
+                }  
+
+                order();
+
+                function order(){
+                    //$cars=array("volvo", "bmw", "mercedes");
+                    global $cars;
+
+                    sort($cars); //- sort arrays in ascending order
+                    // rsort($cars); //- sort arrays in descending order
+                    // asort($cars); //- sort associative arrays in ascending order, according to the value
+                    // ksort($cars); //- sort associative arrays in ascending order, according to the key
+                    // arsort($cars); //- sort associative arrays in descending order, according to the value
+                    // krsort($cars); //- sort associative arrays in descending order, according to the key
+
+                    $qnt_cars=count($cars);
+
+                    for ($i=0; $i < $qnt_cars; $i++) { 
+
+                        echo $cars[$i]."<br>";
+
+                    }
+
+                }  
                
+            ?>
+        </label>
+
+        <h6>11) Superglobals</h6>
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+        Name: <input type="text" name="fname">
+        <input type="submit"><br>
+
+        <a href="<?php echo $_SERVER['PHP_SELF'];?>?subject=PHP&web=W3schools.com">Test $GET</a>
+        
+        </form>
+        <label>
+            <?php
+                //Superglobals sono variabili globali che puoi richiamare ovunque
+                //$_SERVER per ricavare dati headers, paths, and script locations.
+                echo $_SERVER['PHP_SELF']; //ritorna il file corrente del tuo url
+                echo "<br>";
+                echo $_SERVER['SERVER_NAME'];
+                echo "<br>";
+                echo $_SERVER['HTTP_HOST'];
+                echo "<br>";
+                echo $_SERVER['HTTP_REFERER'];
+                echo "<br>";
+                echo $_SERVER['REQUEST_METHOD']; //ritorna il tipo di metodo usato nel form (post/get)
+                echo "<br>";
+                echo $_SERVER['SCRIPT_NAME'];
+                echo "<br>";
+
+                //$_REQUEST per prendere dati da un form dopo il submit
+               if ($_SERVER['REQUEST_METHOD']=="POST") {
+                // $name=$_REQUEST[fname]; uguale a post
+                $name=$_POST[fname];
+                   if (empty($name)) {
+                       echo "il nome è vuoto<br>";
+                   }else{
+                       echo $name."<br>";
+                   }
+
+               }
+
+               //$_GET per ottenere dati da un url
+               echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
+            ?>
+        </label>
+               
+        <h6>12) Regular expression (regex)</h6>
+        <label>
+            <?php
+                $str = "Visit W3Schools and W3Schools";
+                $pattern = "/w3schools/i";
+                echo preg_match($pattern, $str)."<br>"; //ritorna 1 se il pattern cercato esiste nella stringa
+                echo preg_match_all($pattern, $str)."<br>"; //ritorna il numero di volte che il pattern è stato trovato nella stringa
+                echo preg_replace($pattern, "Ciao", $str)."<br>"; //sostituisce il pattern contenuto nella stringa con un'altra stringa
             ?>
         </label>
 
