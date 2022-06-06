@@ -349,7 +349,7 @@
             ?>
         </label>
 
-        <h6>11) Superglobals</h6>
+        <h6>11) Superglobalss</h6>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
         Name: <input type="text" name="fname">
         <input type="submit"><br>
