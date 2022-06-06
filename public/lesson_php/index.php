@@ -3,6 +3,11 @@
     <head>
         <!-- dataresponsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- jquery 3.5 jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- bootstrap 4.5 bootstrap-->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <style>
         h6{
@@ -349,7 +354,7 @@
             ?>
         </label>
 
-        <h6>11) Superglobalss</h6>
+        <h6>11) Superglobals</h6>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
         Name: <input type="text" name="fname">
         <input type="submit"><br>
@@ -401,6 +406,27 @@
                 echo preg_replace($pattern, "Ciao", $str)."<br>"; //sostituisce il pattern contenuto nella stringa con un'altra stringa
             ?>
         </label>
+
+        <h6>13) Form</h6>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+               <input type="text" name="name" placeholder="name" required/>
+               <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+        
+        <?php 
+            $name="";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = test_input($_POST["name"]);
+            }
+
+            function test_input($data) {
+            $data = trim($data); //rimuove gli spazi
+            $data = stripslashes($data); //removes backslashes
+            $data = htmlspecialchars($data); //Convert special characters to HTML entities
+            echo $data;
+            }
+        ?>
 
     </div>
     
