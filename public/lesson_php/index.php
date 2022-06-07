@@ -408,25 +408,44 @@
         </label>
 
         <h6>13) Form</h6>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-               <input type="text" name="name" placeholder="name" required/>
-               <input class="btn btn-primary" type="submit" value="submit">
-        </form>
         
         <?php 
             $name="";
+            $nameErr="";
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $name = test_input($_POST["name"]);
+
+                if (empty($_POST["name"])) {
+                    $nameErr = "Name is required";
+                }else{
+                    $name = test_input($_POST["name"]);
+                    //if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {} controlla se il nome possiede altro oltre gli spazi e le lettere
+                    //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {} controlla se la mail è valida
+                    //if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {} controlla se il sito è corretto
+                    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+                        $nameErr = "Only letters and white space allowed";
+                    }else{
+                        echo $name;
+                    }
+                }
+            
             }
 
             function test_input($data) {
-            $data = trim($data); //rimuove gli spazi
-            $data = stripslashes($data); //removes backslashes
-            $data = htmlspecialchars($data); //Convert special characters to HTML entities
-            echo $data;
+                $data = trim($data); //rimuove gli spazi
+                $data = stripslashes($data); //removes backslashes
+                $data = htmlspecialchars($data); //Convert special characters to HTML entities
+                return $data;
             }
+
         ?>
+
+        <!-- per questioni di sicurezza quando metti lo script della stessa pagina in action metti il prefisso htmlspecialchars -->
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <input type="text" name="name" placeholder="name"/>
+            <span class="error">* <?php echo $nameErr;?></span>
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
 
     </div>
     
