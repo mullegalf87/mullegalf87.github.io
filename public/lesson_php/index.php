@@ -447,6 +447,62 @@
             <input class="btn btn-primary" type="submit" value="submit">
         </form>
 
+
+        <h6>14) Date</h6>
+        <label>
+            <?php
+                //d=giorno a numero
+                //l=giorno a lettere
+                //m=mese a numero
+                //M=mese a lettere
+                //Y=anno
+                //h=ora
+                //i=mese
+                //s=secondi
+                //a=am o pm
+                date_default_timezone_set("Italy/Rome");
+                echo "Today is " . date("d/m/Y-l h:i:s") . "<br>";
+                //mktime attribuisce mktime(hour, minute, second, month, day, year)
+                $mktime=mktime(11, 14, 54, 8, 12, 2014);
+                echo "The date is " . date("d/m/Y-l h:i:s", $mktime) . "<br>";
+                //strtotime converte una stringa ini inglese di una data in un formato data
+                $strtotime=strtotime("22:30 15 April 2022");
+                echo "Create date is " . date("d/m/Y-l h:i:sa", $strtotime) . "<br>";
+                //esercizio sotto permette di scrollare ogni settimana per un massimo di 6 settimane con strtotime
+                // Jun 11
+                // Jun 18
+                // Jun 25
+                // Jul 02
+                // Jul 09
+                // Jul 16
+                $strtotime_2=strtotime("saturday");
+
+                $enddate=strtotime("6 weeks", $strtotime_2);
+
+                while ($strtotime_2 < $enddate) {
+                    
+                    echo date("d-M",$strtotime_2)."<br>";
+
+                    $strtotime_2=strtotime("+1 week",$strtotime_2);
+                }
+                //mostrare numero di giorni fino al 4 luglio
+                $today=strtotime("today");
+                $enddate_2=strtotime("4 july");
+
+                $count=0;
+                while ($today < $enddate_2) {
+                    $count+=1;
+                    $today=strtotime("+1 day",$today);
+                }
+                echo "dal 4 luglio ad oggi ci sono ".$count." giorni<br>";
+
+
+
+
+                
+            ?>
+        </label>
+
     </div>
     
 </body>
