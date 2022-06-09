@@ -495,14 +495,65 @@
                     $today=strtotime("+1 day",$today);
                 }
                 echo "dal 4 luglio ad oggi ci sono ".$count." giorni<br>";
-
-
-
-
-                
             ?>
         </label>
 
+        <h6>15) Include e Require</h6>
+        <label>
+            <?php 
+                // Use require quando il file è richiesto dall'applicazione.
+                //Use include quando il file non è richiesto dall'applicazione and l'applicazione dovrebbe continuare fino a quando il file non è trovato.
+
+                //require
+                include 'other_file/vars.php';
+                echo "il colore è ".$color;
+
+            ?>
+        </label>
+
+        <h6>16) Open/Read/Close/Create/Write</h6>
+        <label>
+            <?php 
+                //FUNZIONI
+                // fopen: apre il file
+                // fread: legge il file
+                // fclose chiude il file
+                // fgets: legge una sola riga
+                // feof: controlla se la fine del file è stata raggiunta con il loop
+                // fgetc: legge un singolo carattere dal file
+                // fwrite: sovrascrive sul file
+
+                //PARAMETRI
+                //r	apri un file per leggerlo solo
+                //w apri un file per sovrascriverlo solo
+                //a apri un file per scrivere in prosecuzione (append)
+                //x crea un nuovo file per scriverlo solo
+                //r+ apri un file per leggere e scrivere solo
+                //x+ crea un nuovo file per leggere e scrivere solo
+
+                //apro il file solo per leggerlo
+                //$myfile = fopen("other_file/webdictionary.txt", "r") or die("Unable to open file!");
+                //leggo il file
+                // echo fread($myfile,filesize("other_file/webdictionary.txt"));
+                //leggo una sola riga
+                // echo fgets($myfile);
+                //controllo se il file è arrivato alla fine
+                // while(!feof($myfile)){
+                // legge tutti i caratteri del file in loop
+                //     echo fgetc($myfile);
+                // }
+                
+                $myfile = fopen("other_file/webdictionary.txt", "a") or die("Unable to open file!");
+                $txt = "John Doe = Ciccio\n";
+                //sovrascrive sul file
+                fwrite($myfile, $txt);
+                $txt = "John Babbano = Toro\n";
+                fwrite($myfile, $txt);
+
+                fclose($myfile);
+            
+            ?>
+        </label>
     </div>
     
 </body>
