@@ -1,3 +1,15 @@
+<?php
+    //SETTARE I COOKIE
+    $cookie_name = "user";
+    $cookie_value = "John Doe";
+    //passare alla funzione nome, valore e data di estinsione del cookie
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    //per eliminare il cookie
+    //setcookie("user", "", time() - 3600);
+
+    //SETTARE UNA SESSIONE
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -565,6 +577,52 @@
             </form>
             
         </label>
+
+        <h6>18) Cookies</h6>
+        <label>
+                    
+            <?php
+                // un cookied viene usato per identificare un utente, e si setta prima dell'html tag
+                //1) controllare se il cookie è stato settato/modificato prima dell'html tag con il setcookie()
+                if (!isset($_COOKIE[$cookie_name])) {
+                    echo "il cookie ".$cookie_name." non è settato<br>";
+                }else{
+                    echo "il cookie name ".$cookie_name." è settato<br>";
+                    echo "il valore del cookie ".$_COOKIE[$cookie_name]." è settato<br>";
+                    
+                }
+
+            ?>
+            
+        </label>
+
+        <h6>19) Session</h6>
+        <label>
+                    
+            <?php
+                // una sessione viene usata per memorizzare informazioni in variabili(come se fosse una super variabile globale) e passarli tra le pagine e si setta prima dell'html tag
+                //per attribuire un valore ad una variabile session
+                $_SESSION["favcolor"]="red";
+                $_SESSION["favanimal"]="rabbit";
+                echo $_SESSION["favcolor"]."<br>";
+                foreach($_SESSION as $key=>$value){
+                    echo($key." => ".$value."<br>");
+                }
+                //per modificare basta sovrascrivere sulla variabile precedente
+                $_SESSION["favcolor"]="blue";
+                echo $_SESSION["favcolor"]."<br>";
+
+                // rimuove tutte le sessioni
+                session_unset();
+
+                // distrugge la sessione
+                session_destroy();
+            ?>
+            
+        </label>
+
+
+
     </div>
     
 </body>
