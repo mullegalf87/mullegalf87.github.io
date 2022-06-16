@@ -621,7 +621,197 @@
             
         </label>
 
+        <h6>20) Filter</h6>
+        <label>
+            <?php
+            // i filtri con filter_var() servono a:
+            //validating data: a determinare se il dato è nella forma corretta;
+            //sanitizing data: a rimuovere ogni carattere illegale secondo forma nel dato;
+            //VALIDATING
+            //-FILTER_VALIDATE_INT;
+            //-FILTER_VALIDATE_IP;
+            //-FILTER_VALIDATE_EMAIL;
+            //-FILTER_VALIDATE_URL;
+            //-FILTER_FLAG_IPV6; => controlla se è un ipv6
+            //-FILTER_FLAG_QUERY_REQUIRED; => controlla se è un url con query
+            //-FILTER_FLAG_STRIP_HIGH; =>rimuove tutti i caratteri con valore ascii > 127
+            //SANITAZING
+            //-FILTER_SANITIZE_EMAIL;
+            //-FILTER_SANITIZE_URL;
 
+            $email="test@ciao..it";
+            //rimuove i caratteri strani
+            $email=filter_var($email, FILTER_SANITIZE_EMAIL);
+            //controlla se la mail è corretta
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)===false) {
+                echo("Email is valid<br>");
+            } else {
+                echo("Email is not valid<br>");
+            }
+            
+            $int = 3000;
+            $min = 100;
+            $max = 200;
+
+            if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
+                echo("Variable value is not within the legal range<br>");
+            } else {
+                echo("Variable value is within the legal range<br>");
+            }
+
+            $ip = "2001:0db8:85a3:08d3:1319:8a2e:0370:7334";
+
+            if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+            echo("$ip is a valid IPv6 address<br>");
+            } else {
+            echo("$ip is not a valid IPv6 address<br>");
+            }
+            ?>
+
+        <h6>21) Callback function</h6>
+        <label>
+                    
+            <?php
+                // è una funzione che è passata come argomento in un'altra funzione
+                //ritorna quantità di elementi in un array con map_array()
+                function my_callback($item){
+
+                    return strlen($item);
+
+                }
+
+                $array=["test_1", "test_2", "test_3"];
+                $call=array_map("my_callback",$array);
+                print_r($call."<br>");
+
+                function test_1($string){
+
+                    return $string;
+
+                }
+
+                function test_2($string){
+
+                    return $string;
+
+                }
+
+                function test_3($text, $function){
+
+                    echo $function($text);
+
+                }
+
+                test_3("ciao_1<br>", "test_1");
+                test_3("ciao_2<br>", "test_2");
+
+            ?>
+            
+        </label>
+            
+        <h6>22) JSON</h6>
+        <label>
+                    
+            <?php
+                // JSON (JavaScript Object Notation) serve a memorizzare e scambiare dati e si divide in:
+                //1) json_encode() = codifica un object o array da php a javascript
+                //1) json_decode() = decodifica un object o array da javascript in php
+
+                $objectName = array('peter' => 35,'luigi' => 45, 'mario' => 36);
+                $arrayName = array("peter","luigi","mario");
+                echo json_encode($objectName)."<br>";
+                echo json_encode($arrayName)."<br>";
+
+                $objectName = '{"peter":35,"luigi":45,"mario":36}';
+                $arrayName='["peter","luigi","mario"]';
+                //var_dump()=mostra la struttura dell'object o di un array
+                echo var_dump(json_decode($objectName))."<br>";
+                //mettendo true trasforma l'object in associative array
+                //echo var_dump(json_decode($objectName),true)."<br>";
+                $get_value=json_decode($objectName);
+                echo $get_value->peter."<br>";
+                //ottieni il dato sotto se l'object è un associative array
+                //echo $arr["Peter"];
+                foreach ($get_value as $key => $value) {
+                    echo $key." e ".$value."<br>";
+                }
+                echo var_dump(json_decode($arrayName))."<br>";
+
+            ?>
+        </label>
+
+        <h6>23) Exception</h6>
+        <label>
+                    
+            <?php
+                // Le exception permettono di estrapolare info sull'errore presentato durante il processo sottoforma di object, questi sono:
+                //throw new Exception()= ricava l'errore e ferma il processo
+                //try{}catch{}=ricava l'errore ma non ferma il processo
+                function divide($dividend, $divisor) {
+                    if($divisor == 0) {
+                        // throw new Exception("Division by zero");
+                    }
+                    return $dividend / $divisor;
+                }
+
+                try{
+                    
+                    echo divide(5,0);
+
+                }catch(Exception $e){
+
+                    echo "inable to divide<br>";
+                    echo $e->getMessage()."<br>";//mostra il messaggio di exception nel throw nella funzione
+                    echo $e->getFile()."<br>";//mostra la directory del file dove si trova exception nel throw 
+                    echo $e->getLine()."<br>";//mostra la linea dove si trova exception nel throw 
+                    echo $e->getCode()."<br>";//mostra il codice del exception
+
+                }finally {
+                    //ti dice che il processo è terminato
+                    echo "Process complete.<br>";
+
+                }
+
+                echo divide(5, 0);
+
+            ?>
+        </label>
+
+        <h6>24) PHP + mySql</h6>
+        <label>
+                    
+            <?php
+            //php funziona con il database mysql attraverso:
+            //-PDO (PHP Data Objects) =>funziona su 12 sistemi di database
+            //-MySQLi extension (object-oriented e procedural)=>funziona solo su mysql database
+
+            //1)CREARE CONNESSIONE AL DATABASE
+            $servername="127.0.0.1";
+            $username="root";
+            $password="AklkOodX0Rc7LVvs";
+
+            //MySqli (object-oriented)
+            $conn=new mysqli($servername, $username, $password);
+
+            //MySqli (procedural)
+            //$conn=mysqli_connect($servername, $username, $password);
+
+            //PDO
+            //$conn=new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+
+            if (!$conn) {
+
+                die(mysqli_connect_error());
+
+            } else {
+
+                echo "connesso";
+
+            }
+            
+            ?>
+
+        </label>
 
     </div>
     
