@@ -789,15 +789,17 @@
             $servername="127.0.0.1";
             $username="root";
             $password="AklkOodX0Rc7LVvs";
+            $db="test";
+            global $conn;
 
             //MySqli (object-oriented)
-            $conn=new mysqli($servername, $username, $password);
+            $conn=new mysqli($servername, $username, $password, $db);
 
             //MySqli (procedural)
-            //$conn=mysqli_connect($servername, $username, $password);
+            //$conn=mysqli_connect($servername, $username, $password, $db);
 
             //PDO
-            //$conn=new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+            //$conn=new PDO("mysql:host=$servername;dbname=myDB", $username, $password, $db);
 
             if (!$conn) {
 
@@ -807,8 +809,62 @@
 
                 echo "connesso";
 
+                create_table();
+                //MySqli
+                // $conn->close();
+                //MySqli (procedural)
+                //mysqli_close($conn);
+                //PDO
+                //$conn = null;
+                
             }
             
+            function create_table(){
+                global $conn;
+                // sql to create table
+                $sql = "CREATE TABLE lesson_php (
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                firstname VARCHAR(30) NOT NULL,
+                lastname VARCHAR(30) NOT NULL,
+                email VARCHAR(50),
+                reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                )";
+                
+                //questa //MySqli controlla la connessione al db e mette la query al suo interno
+                if ($conn->query($sql) === TRUE) {
+                echo "Table MyGuests created successfully<br>";
+                } else {
+                echo "Error creating table: " . $conn->error."<br>";
+                }
+
+                insert_data();
+
+            }
+
+            function insert_data(){
+                global $conn;
+                $rArray = array();    // create array
+                $rArray[] = array("firstname"=>"john", "lastname"=>"doe", "email"=>"test@test.it");   // add first object
+                $rArray[] = array("firstname"=>"dar", "lastname"=>"lamp", "email"=>"testa@testa.it");
+                
+                for ($i=0; $i < count($rArray); $i++) { 
+                //     $sql = "INSERT INTO lesson_php (firstname, lastname, email)
+                // VALUES ('John', 'Doe', 'john@example.com')";
+                    echo $key[$i];
+                    echo $rArray[$i]["firstname"];
+                    echo $rArray[$i]["lastname"];
+                    echo $rArray[$i]["email"];
+                }
+                
+                // //questa //MySqli controlla la connessione al db e mette la query al suo interno
+                // if ($conn->query($sql) === TRUE) {
+                //     //questo ti permette di ricavare l'ultimo id inserito, è uguale a insertGetId di laravel
+                //     $last_id = $conn->insert_id;
+                //     echo "Table MyGuests created successfully with id:".$last_id;
+                // } else {
+                //     echo "Error creating table: " . $conn->error;
+                // }
+            }
             ?>
 
         </label>
