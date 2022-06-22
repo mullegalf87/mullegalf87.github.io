@@ -837,33 +837,84 @@
                 echo "Error creating table: " . $conn->error."<br>";
                 }
 
-                insert_data();
+                insert_multiple_data();
 
             }
 
-            function insert_data(){
+            function insert_multiple_data(){
+                //dichiaro la variabile globale connection
                 global $conn;
-                $rArray = array();    // create array
-                $rArray[] = array("firstname"=>"john", "lastname"=>"doe", "email"=>"test@test.it");   // add first object
-                $rArray[] = array("firstname"=>"dar", "lastname"=>"lamp", "email"=>"testa@testa.it");
-                
-                for ($i=0; $i < count($rArray); $i++) { 
-                //     $sql = "INSERT INTO lesson_php (firstname, lastname, email)
-                // VALUES ('John', 'Doe', 'john@example.com')";
-                    echo $key[$i];
-                    echo $rArray[$i]["firstname"];
-                    echo $rArray[$i]["lastname"];
-                    echo $rArray[$i]["email"];
+                // add first array
+                $array_1 = array("firstname"=>"john", "lastname"=>"doe", "email"=>"test@test.it");
+                // add second array
+                $array_2 = array("firstname"=>"dar", "lastname"=>"lamp", "email"=>"testa@testa.it");
+                // add arrays into unique array
+                $array=array($array_1,$array_2);
+
+                //un altro modo è, ma a me non piace
+                //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+                //$sql = "DELETE FROM MyGuests WHERE id=2";
+                // $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+                // VALUES ('John', 'Doe', 'john@example.com');";
+                // $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+                // VALUES ('Mary', 'Moe', 'mary@example.com');";
+                // $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
+                // VALUES ('Julie', 'Dooley', 'julie@example.com')";
+
+                // prepare and bind per evitare SQL injections.
+                $stmt = $conn->prepare("UPDATE lesson_php (firstname, lastname, email) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO lesson_php (firstname, lastname, email) VALUES (?, ?, ?)");
+                $stmt->bind_param("sss", $firstname, $lastname, $email);
+
+                for ($i=0; $i < count($array); $i++) { 
+
+                    //implode mette il primo parametro e lo divide per gli array presenti
+                    // $value=implode("','",$array[$i]);
+                    //metto il value nella query
+                    // $sql = "INSERT INTO lesson_php (firstname, lastname, email) VALUES ('$value')";  
+                    //inserisco la query nel conn e faccio la condizione se va tutto a buon fine
+                    // if ($conn->query($sql) === TRUE) {
+
+                    //     //questo ti permette di ricavare l'ultimo id inserito, è uguale a insertGetId di laravel
+                    //     $last_id = $conn->insert_id;
+
+                    //     echo "Table MyGuests created successfully with id:".$last_id;
+
+                    // } else {
+
+                    //     echo "Error creating table: " . $conn->error;
+
+                    // }
+
+                    // set parameters and execute
+                    $firstname = $array[$i]["firstname"];
+                    $lastname = $array[$i]["lastname"];
+                    $email = $array[$i]["email"];
+                    $stmt->execute();
+
                 }
+
+                get_multiple_data();
                 
-                // //questa //MySqli controlla la connessione al db e mette la query al suo interno
-                // if ($conn->query($sql) === TRUE) {
-                //     //questo ti permette di ricavare l'ultimo id inserito, è uguale a insertGetId di laravel
-                //     $last_id = $conn->insert_id;
-                //     echo "Table MyGuests created successfully with id:".$last_id;
-                // } else {
-                //     echo "Error creating table: " . $conn->error;
-                // }
+            }
+
+            function get_multiple_data(){
+                //dichiaro la variabile globale conn
+                global $conn;
+                //dichiaro la query
+                $sql = "SELECT * FROM lesson_php WHERE id=9 ORDER BY lastname"; 
+                //ti mostra il risultato della query in object con degli elementi utili come il num_rows
+                $result = $conn->query($sql);  
+                //gli dico di controllare se il numero delle righe è maggiore di zero e casomai mostra
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+
             }
             ?>
 
