@@ -917,7 +917,160 @@
 
             }
             ?>
+        </label>
 
+        <h6>25) XML</h6>
+        <label>
+            
+            <?php 
+            // xml è un modo per strutturare dati da condividere sul web. Per manipolare i file xml è necessario l'xml parser che a sua volta si divide in:
+            //Tree-Based Parsers(struttura ad albero): utile per file xml di piccole dimensioni, consuma più memoria: simple xml e DOM;
+            //Event-Based Parsers: utile per file xml di grandi dimensioni, consuma meno memoria: XML reader, XML Expat Parser;
+
+            //1)SIMPLE XML
+            $myXMLData =
+            "<?xml version='1.0' encoding='UTF-8'?>
+            <note>
+            <to>Tove</to>
+            <from>Jani</from>
+            <heading>Reminder</heading>
+            <body>Don't forget me this weekend!</body>
+            </note>";
+            //leggo il file xml COME STRINGA con la funzione php simplexml_load_string() e lo trasforma in object dove i tag diventano le key e il contenuto i value
+            $xml=simplexml_load_string($myXMLData) or die("Error: Cannot create object");
+            //controllo se il file xml presenta errori con libxml_get_errors()
+            if ($xml === false) {
+            echo "Failed loading XML: ";
+            foreach(libxml_get_errors() as $error) {
+                echo "<br>", $error->message;
+            }
+            } else {
+            print_r($xml);
+            }
+            //leggo il file xml COME FILE con la funzione php simplexml_load_file()
+            $xml=simplexml_load_file("../lesson_php/other_file/note.xml") or die("Error: Cannot create object");
+            print_r($xml);
+            //conto quante volte il tag book si ripete e mi estrapolo il get dei titoli
+            for ($i=0; $i < count($xml->book); $i++) { 
+                echo $xml->book[$i]->title . "<br>";
+                //ottiene i nomi degli attributi category e lang
+                echo $xml->book[$i]['category'] . "<br>";
+                echo $xml->book[$i]->title['lang'] . "<br>";
+            }
+            //si può leggere anche così
+            // foreach ($xml->book as $value) {
+            //     echo $value->title ."<br>";
+            // }
+            // echo $xml->to;
+
+            //2) PHP XML DOM Parser
+            //dichiaro il dom document
+            $xmlDoc = new DOMDocument();
+            //leggo il file
+            $xmlDoc->load("../lesson_php/other_file/note.xml");
+            // print $xmlDoc->saveXML();
+            //ottengo l'object da documentElement
+            $x = $xmlDoc->documentElement;
+            print_r($x->childNodes);
+            foreach ($x->childNodes as $item) {
+            print $item->nodeName . " = " . $item->nodeValue . "<br>";
+            }            
+            ?>
+        </label>
+
+        <h6>26) AJAX</h6>
+        <label>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+            <input type="text" id="fprice" name="fprice" value="13.90">
+            <div id="txtHint"><b>CD info will be listed here...</b></div>
+            <select name="cds" onchange="showCD(this.value)">
+                <option value="">Select a CD:</option>
+                <option value="Bob Dylan">Bob Dylan</option>
+                <option value="Bee Gees">Bee Gees</option>
+                <option value="Cat Stevens">Cat Stevens</option>
+            </select>
+            
+            <div id="txtHintcd"><b>CD info will be listed here...</b></div>
+
+            <p>Suggestions: <span id="txtHint"></span></p> 
+            <script>
+                function showHint(str){
+                    var price=$("#fprice").val();
+                    $.ajax({
+                        data: {data:str, price:price},
+                        type: 'POST',
+                        url: 'lesson_php/other_file/gethint.php',
+                        success: function(output){
+                            
+                            $("#txtHint").text(output);
+
+                        }
+                    });
+                }
+
+                function showCD(str){
+ 
+                    $.ajax({
+                        data: {data:str},
+                        type: 'GET',
+                        url: 'lesson_php/other_file/getcd.php',
+                        success: function(output){
+                            var res=jQuery.parseJSON(output);
+
+                            for (let index = 0; index < res.length; index++) {
+                              
+                                console.log(res[0].ARTIST);
+                                $("#txtHintcd").html(res[0].TITLE+"<br>"+res[0].ARTIST+"<br>"+res[0].COUNTRY+"<br>"+res[0].COMPANY+"<br>"+res[0].PRICE+"<br>"+res[0].YEAR);
+                                
+                            }
+
+                        }
+                    });
+
+                }
+            </script>
+
+        </label>
+        
+        <h6>27) OOP Object-Oriented Programming</h6>
+        <label>
+                <?php 
+                    //i principali elementi di questo tipo di programmazione ad oggetti sono:
+                    //1) Class= è un modello di oggetti (es: fruits)
+                    //2) Object= è una instanza di una classe (es: apple, ananas) attraverso la comune descrizione dei campi e dei metodi
+
+                    class Fruit {
+                        // Properties
+                        public $name;
+                        public $color;
+                      
+                        // Methods
+                        //function __construct($name) { permette di inizializzare le proprietà di un oggetto nel momento della sua creazione
+                        function set_name($name) {
+                          $this->name = $name;
+                        }
+                        function get_name() {
+                          return $this->name;
+                        }
+                        // function __destruct() { è chiamato quando l'object è distrutto o lo script è finito o uscito
+                        //     echo "The fruit is {$this->name}.";
+                        //   }
+                      }
+                      
+                      //con il constructor sarebbe
+                      //$apple = new Fruit("Apple");
+                      $apple = new Fruit();
+                      $banana = new Fruit();
+
+                      $apple->set_name('Apple');
+                      $banana->set_name('Banana');
+                      
+                      echo $apple->get_name();
+                      echo "<br>";
+                      echo $banana->get_name();
+
+                ?>
         </label>
 
     </div>
