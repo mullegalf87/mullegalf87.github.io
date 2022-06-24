@@ -1037,39 +1037,66 @@
         <label>
                 <?php 
                     //i principali elementi di questo tipo di programmazione ad oggetti sono:
-                    //1) Class= è un modello di oggetti (es: fruits)
-                    //2) Object= è una instanza di una classe (es: apple, ananas) attraverso la comune descrizione dei campi e dei metodi
+                    //1) Class= è un modello di oggetti (es: fruits), che contiene:
+                        //-properties: è un nome attribuito ad un oggetto;
+                        //-methods: è una azione che può essere eseguita sugli oggetti; a loro volta questi possono essere:
+                            //*final methods: impedisce la sovrascrizione del primo metodo contenuto nella prima classe dal secondo metodo contenuto nella seconda classe;
+                            //*abstract methods: esso è contenuto dentro un class abstract se il metodo astratto è definito come protetto nella classe parent, il metodo della classe child deve essere definito come protetto o pubblico, ma non privato;
+                        //Entrambi sono accessibili in tre modi:
+                        //.public (default): è possibile accedere alla proprietà o al metodo da ovunque
+                        //.protected: è possibile accedere alla proprietà o al metodo all'interno della classe e dalle classi derivate da quella classe
+                        //.private: è possibile accedere alla proprietà o al metodo SOLO all'interno della classe
+                        //La class a sua volta può essere:
+                            //*final class: impedisce l'Inheritance;
+                            //*abstract class: è una classe che deve contenere almeno un method abstract, il quale è dichiarato dentro la classe ma non implementato nel codice;
+                    //2) Object= è una instanza di una classe (es: apple, ananas) attraverso:
+                        
 
+                    //CREO UNA CLASS (// Parent class)
                     class Fruit {
                         // Properties
                         public $name;
-                        public $color;
-                      
+                        //Una classe constant è dichiarata dentro una classe con const
+                        const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
                         // Methods
-                        //function __construct($name) { permette di inizializzare le proprietà di un oggetto nel momento della sua creazione
-                        function set_name($name) {
+                        //function set_name($name) {permette di inizializzare le proprietà di un oggetto nel momento della sua creazione                      
+                        function __construct($name) { 
                           $this->name = $name;
                         }
-                        function get_name() {
+                        //è possibile accedere alla proprietà o al metodo all'interno della classe e dalle classi derivate da quella classe
+                        protected function get_name() {
                           return $this->name;
                         }
                         // function __destruct() { è chiamato quando l'object è distrutto o lo script è finito o uscito
                         //     echo "The fruit is {$this->name}.";
                         //   }
                       }
-                      
-                      //con il constructor sarebbe
-                      //$apple = new Fruit("Apple");
-                      $apple = new Fruit();
-                      $banana = new Fruit();
 
-                      $apple->set_name('Apple');
-                      $banana->set_name('Banana');
-                      
-                      echo $apple->get_name();
-                      echo "<br>";
-                      echo $banana->get_name();
+                      //Inheritance è quando una classe deriva da un altra classe dichiarando l'extends, quest'ultima classe creata verrà dichiarata dall'object per prima.
+                      // Child classes
+                      class Strawberry extends Fruit {
 
+                        function message(){
+
+                            echo "Am I a fruit or a berry? ";
+                            //posso chiamare il method protected perchè questa classe è una derivata della prima
+                            echo $this->get_name()."<br>";
+                            //posso richiamare la classe const attraverso l'operatore self:: perchè è una derivata dell'altra classe
+                            echo self::LEAVING_MESSAGE."<br>";
+
+                        }
+
+                      }
+                      
+                      //CREO UN OBJECT
+                      $apple = new Strawberry("Apple");
+                      //chiamo il method dentro l'ultima classe
+                      $apple->message();
+                      //$apple->get_name()."<br>"; sbagliato perchè è protected la properties
+                      //posso richiamare la classe const attraverso l'operatore ::
+                      echo Fruit::LEAVING_MESSAGE."<br>";
+                      
+                      
                 ?>
         </label>
 
