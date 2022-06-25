@@ -25,6 +25,7 @@
         if (mysqli_query($conn, $query)) {
 
             $result = $conn->query($query);  
+            $result = $result->fetch_all(MYSQLI_ASSOC);
             return $result;
 
         } else {
@@ -48,7 +49,8 @@
         if (mysqli_query($conn, $query)) {
 
             $last_id = $conn->insert_id;
-            echo $last_id;
+
+            echo array("last_id"=>$last_id, "type_query"=>"add_prod");
 
         } else {
 
