@@ -41,33 +41,33 @@
                 </ul>
             </div>
         </nav>
-<?php
-    $actual_link = "$_SERVER[REQUEST_URI]";
-    //folder inc function php
-    switch (explode("/",$actual_link)[1]) {
-        case 'news':
-            require('inc/news.php');
-            include('tpl/news.tpl.php'); 
-        break;
-        case 'events':
-            require('inc/events.php');
-            include('tpl/events.tpl.php');
-        break;
-        case 'contact':
-            require('inc/contact.php');
-            include('tpl/contact.tpl.php');
-        break;
-        default:
-            if (explode("/",$actual_link)[1] == '') {
-                require('inc/home.php');
-                include('tpl/home.tpl.php');
-            }else {
-                require('inc/page_not_found.php');
-                include('tpl/page_not_found.tpl.php');
+        <?php
+            $actual_link = "$_SERVER[REQUEST_URI]";
+            //folder inc function php
+            switch (explode("/",$actual_link)[1]) {
+                case 'news':
+                    require('inc/news.php');
+                    include('tpl/news.tpl.php'); 
+                break;
+                case 'events':
+                    require('inc/events.php');
+                    include('tpl/events.tpl.php');
+                break;
+                case 'contact':
+                    require('inc/contact.php');
+                    include('tpl/contact.tpl.php');
+                break;
+                default:
+                    if (explode("/",$actual_link)[1] == '') {
+                        require('inc/home.php');
+                        include('tpl/home.tpl.php');
+                    }else {
+                        require('inc/page_not_found.php');
+                        include('tpl/page_not_found.tpl.php');
+                    }
+                break;
+                
             }
-        break;
-        require('inc/connection_db.php');
-    }
-?>
+        ?>
     </body>
 </html>
