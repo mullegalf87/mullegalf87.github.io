@@ -22,7 +22,7 @@
             <th>Price</th>
             <th>Command</th>
         </thead>
-        <tbody id="append_prod">
+        <tbody id="update_prod">
             <?php
                 
                 $result=get_prod();
@@ -30,18 +30,21 @@
                 for ($i=0; $i < count($result); $i++) { 
 
                     echo 
-                    '<tr>
+                    '<tr id="tr_'.$result[$i]["id"].'">
                         <td>
                         '.$result[$i]["id"].'
                         </td>
                         <td>
-                        '.$result[$i]["name_prod"].'
+                            <input class="form-control" id="input_name_prod_'.$result[$i]["id"].'" value="'.$result[$i]["name_prod"].'">
                         </td>
                         <td>
-                        '.$result[$i]["price_prod"].'
+                            <input class="form-control" id="input_price_prod_'.$result[$i]["id"].'" value="'.$result[$i]["price_prod"].'">
                         </td>
                         <td>
-                        <button class="btn btn-danger button_click delete_prod">Delete</button>
+                            <button class="btn btn-secondary button_click update_prod" id_prod="'.$result[$i]["id"].'">Update</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger button_click delete_prod" id_prod="'.$result[$i]["id"].'">Delete</button>
                         </td>
                     </tr>';
 
