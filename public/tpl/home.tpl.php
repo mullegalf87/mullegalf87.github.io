@@ -39,7 +39,7 @@
                             <input class="form-control prod_'.$result[$i]["id"].'" id="name_prod_'.$result[$i]["id"].'" value="'.$result[$i]["name_prod"].'">
                         </td>
                         <td>
-                            <input class="form-control prod_'.$result[$i]["id"].'" id="price_prod_'.$result[$i]["id"].'" value="'.$result[$i]["price_prod"].'">
+                            <input class="form-control prod_'.$result[$i]["id"].' single_price" id="price_prod_'.$result[$i]["id"].'" value="'.$result[$i]["price_prod"].'">
                         </td>
                         <td>
                             <button class="btn btn-secondary button_click update_prod" id_prod="'.$result[$i]["id"].'">Update</button>
@@ -47,19 +47,15 @@
                         </td>
                     </tr>';
 
-                    $sum_price+=$result[$i]["price_prod"];
-
                 }
-
-                echo 
-                '<tr id="tr_sum">
-                    <td>Total</td>
-                    <td></td>
-                    <td id="total_price">'.$sum_price.'</td>
-                    <td></td>
-                </tr>';
       
             ?>
         </tbody>
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td id="total_price"></td>
+            <td></td>
+        </tr>
     </table>
 </div>

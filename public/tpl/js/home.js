@@ -1,3 +1,9 @@
+$(document).ready(function(){
+
+    sum_price();
+
+});
+
 //utilizzare la forma seguente quando il documento è pronto fai l'onclick per elementi presenti e futuri
 $(document).on("click", ".button_click" ,function(){
 
@@ -31,13 +37,12 @@ $(document).on("click", ".button_click" ,function(){
                     var append_prod='<tr id="tr_'+res.id_prod+'">'+
                     '<td>'+res.id_prod+'</td>'+
                     '<td><input class="form-control prod_'+res.id_prod+'" id="name_prod_'+res.id_prod+'" value="'+clear_array_column+'"></td>'+
-                    '<td><input class="form-control prod_'+res.id_prod+'" id="price_prod_'+res.id_prod+'" value="'+clear_array_value+'"></td>'+
-                    '<td><button class="btn btn-secondary button_click update_prod" id_prod="'+res.id_prod+'">Update</button>'+
+                    '<td><input class="form-control prod_'+res.id_prod+' single_price" id="price_prod_'+res.id_prod+'" value="'+clear_array_value+'"></td>'+
+                    '<td><button class="btn btn-secondary button_click update_prod mr-1" id_prod="'+res.id_prod+'">Update</button>'+
                     '<button class="btn btn-danger button_click delete_prod" id_prod="'+res.id_prod+'">Delete</button>'+
                     '</td>'+
                     '</tr>';
                     $("#update_prod").append(append_prod);
-                    sum_price(clear_array_value);
                     break;
                 case 'update_prod':
                     console.log("updated!");
@@ -46,16 +51,21 @@ $(document).on("click", ".button_click" ,function(){
                     $("#tr_"+res.id_prod).remove();
                     break;
             }
+            sum_price();
         }
     });
 
 });
 
-function sum_price(clear_array_value){
+function sum_price(){
+
     var total_price=0;
-    total_price=$("#total_price").text();
-    total_price=parseFloat(total_price)+parseFloat(clear_array_value);
-    console.log(total_price);
-    $("#total_price").text(total_price);
+
+    $('.single_price').each(function(){
+        var single_price=$(this).val();
+        total_price+=parseFloat(single_price);
+    });
+
+    $("#total_price").text(total_price.toFixed(2));
 
 }
