@@ -3,7 +3,8 @@
     <label>Connessione al db:
         <?php
 
-            echo connect_db(); 
+            // echo connect_db(); 
+            echo $_SESSION['username'];
 
         ?>
     </label>

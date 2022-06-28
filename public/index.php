@@ -12,12 +12,14 @@
         <link rel='stylesheet' href='tpl/css/contact.css'>
         <link rel='stylesheet' href='tpl/css/events.css'>
         <link rel='stylesheet' href='tpl/css/news.css'>
+        <link rel='stylesheet' href='tpl/css/login.css'>
         <link rel='stylesheet' href='tpl/css/page_not_found.css'>
         <!-- js pages -->
         <script src="tpl/js/home.js"></script>
         <script src="tpl/js/contact.js"></script>
         <script src="tpl/js/events.js"></script>
         <script src="tpl/js/news.js"></script>
+        <script src="tpl/js/login.js"></script>
         <script src="tpl/js/page_not_found.js"></script>
     </head>
     <body>
@@ -37,6 +39,7 @@
                         <a class="dropdown-item" href="/contact">Contact</a>
                         <a class="dropdown-item" href="/events">Events</a>
                         <a class="dropdown-item" href="/news">News</a>
+                        <a class="dropdown-item" href="/login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -56,6 +59,9 @@
                 case 'contact':
                     require('inc/contact.php');
                     include('tpl/contact.tpl.php');
+                break;
+                case 'login':
+                    include('tpl/login.tpl.php');
                 break;
                 default:
                     if (explode("/",$actual_link)[1] == '') {
