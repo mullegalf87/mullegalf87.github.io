@@ -1,11 +1,11 @@
 <div class="p-3">
     <h1>Home</h1>
-    <label>Connessione al db:
+    <label>Sei connesso:
         <?php
-
-            // echo connect_db(); 
-            echo $_SESSION['username'];
-
+        // Initialize the session
+        echo htmlspecialchars($_SESSION["id_user"]);
+        echo htmlspecialchars($_SESSION["username"]);
+        echo htmlspecialchars($_SESSION["emal"]);
         ?>
     </label>
     <div class="mt-3">

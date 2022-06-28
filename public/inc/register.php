@@ -1,6 +1,6 @@
 <?php
-
-    require('connect_db.php');
+    session_start();
+    require_once('connect_db.php');
     global $conn;
 
     $error = "";
@@ -48,8 +48,10 @@
         $query = "INSERT INTO users_tests_phps (username, email, password) VALUES('$username', '$email', '$password')";
         $insertUser = mysqli_query($conn, $query);
 
+        //dichiaro le sessioni che saranno visibili da altre pagine quando richiamate
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
+        $_SESSION['id_user'] = $conn->insert_id;
         header("location:/");
     }
 

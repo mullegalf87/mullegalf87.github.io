@@ -3,8 +3,16 @@
         <h3 class="w-100 text-center" style="margin-top: 50px;">Enter Login Details</h3>
         <?php if ($error != "") echo " <div class='button is-danger is-light'>$error</div>" ?>
         <div class="w-50">
-            <?php if ($emailErrorMsg != "") echo "<p class='is-size-6 is-danger is-light has-text-danger'>$emailErrorMsg</p>" ?>
-            <input type="email" name="email" placeholder="Email" class="form-control w-100 mb-3">
+
+
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control <?php echo (!empty($emailErrorMsg)) ? 'is-invalid' : ''; ?>" value="<?php echo $_SESSION["email"] ?>" placeholder="Email">
+                <span class="invalid-feedback"><?php echo $emailErrorMsg; ?></span>
+            </div>
+            
+
             <?php if ($passwordErrorMsg != "") echo "<p class='is-size-6 is-danger is-light has-text-danger'>$passwordErrorMsg</p>" ?>
             <input type="password" name="password" placeholder="Password" class="form-control w-100 mb-3">
             <input type="submit" name="submit" value="Submit" class="btn btn-primary w-100 mb-3">

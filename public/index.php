@@ -1,3 +1,7 @@
+<?php
+// Initialize the session sempre prima dell'html
+session_start();
+?>
 <html>
     <head>
         <!-- dataresponsive -->
@@ -36,10 +40,12 @@
                         Dropdown
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/contact">Contact</a>
-                        <a class="dropdown-item" href="/events">Events</a>
-                        <a class="dropdown-item" href="/news">News</a>
-                        <a class="dropdown-item" href="/login">Login</a>
+                            <a class="dropdown-item" href="/contact">Contact</a>
+                            <a class="dropdown-item" href="/events">Events</a>
+                            <a class="dropdown-item" href="/news">News</a>
+                            <a class="dropdown-item" href="/login">Login</a>
+                            <a class="dropdown-item" href="inc/logout.php">Logout</a>
+                        </div>
                     </li>
                 </ul>
             </div>
