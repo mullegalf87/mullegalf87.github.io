@@ -1,13 +1,5 @@
 <div class="p-3">
     <h1>Home</h1>
-    <label>Sei connesso:
-        <?php
-        // Initialize the session
-        echo htmlspecialchars($_SESSION["id_user"]);
-        echo htmlspecialchars($_SESSION["username"]);
-        echo htmlspecialchars($_SESSION["emal"]);
-        ?>
-    </label>
     <div class="mt-3">
         <div class="d-flex flex-nowrap" id="add_prod">
             <input class="form-control mr-3 prod_0" type="text" name="name_prod" id="name_prod" placeholder="Name Prod">

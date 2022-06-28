@@ -37,14 +37,25 @@ session_start();
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        <?php
+                            if ($_SESSION["username"]) {
+                                echo htmlspecialchars($_SESSION["username"]);
+                            }else{
+                                echo "Dropdown";
+                            }
+                        ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/contact">Contact</a>
                             <a class="dropdown-item" href="/events">Events</a>
                             <a class="dropdown-item" href="/news">News</a>
-                            <a class="dropdown-item" href="/login">Login</a>
-                            <a class="dropdown-item" href="inc/logout.php">Logout</a>
+                            <?php
+                            if ($_SESSION["username"]) {
+                                echo '<a class="dropdown-item" href="inc/logout.php">Logout</a>';
+                            }else{
+                                echo '<a class="dropdown-item" href="/login">Login</a>';
+                            }
+                            ?>
                         </div>
                     </li>
                 </ul>
