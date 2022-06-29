@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    sum_price();
+    sum_operation();
 
 });
 
@@ -20,7 +20,7 @@ $(document).on("click", ".button_click" ,function(){
 
     $("#"+type_query).find(".prod_"+id_prod).each(function(data){
         var result_id_input=this.id;
-        var result_val_input=$("#"+result_id_input).val();
+        var result_val_input=$("#"+result_id_input).val().replaceAll(",",".");
         array_column.push(result_id_input);
         array_value.push("'"+result_val_input+"'");
     });
@@ -40,6 +40,7 @@ $(document).on("click", ".button_click" ,function(){
                     for (let i = 0; i < clear_array_value.length; i++) {
                         append_prod+='<td><input class="form-control prod_'+res.id_prod+'" id="'+clear_array_column[i]+'_'+res.id_prod+'" value="'+clear_array_value[i]+'"></td>';
                     }
+                    append_prod+='<td><input class="form-control single_total" id="total_prod_'+res.id_prod+'" value="0" disabled></td>';
                     append_prod+='<td>'+
                     '<div class="dropdown">'+
                     '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_'+res.id_prod+'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown'+
@@ -60,21 +61,35 @@ $(document).on("click", ".button_click" ,function(){
                     $("#tr_"+res.id_prod).remove();
                     break;
             }
-            sum_price();
+            sum_operation(res.id_prod);
         }
     });
 
 });
 
-function sum_price(){
+function sum_operation(id_prod){
 
-    var total_price=0;
+    var total_qnt=0;
+    var total_cart=0;
+
+    var price_prod=parseFloat($("#price_prod_"+id_prod).val());
+    var qnt_prod=parseFloat($("#qnt_prod_"+id_prod).val());
+    var total_prod=price_prod*qnt_prod;
+    $("#total_prod_"+id_prod).val(total_prod);
+    
     //prenditi tutti gli input con id che inizia per price_prod
-    $('.single_price').each(function(){
-        var single_price=$(this).val();
-        total_price+=parseFloat(single_price);
+    $('input[id^="qnt_prod_"]').each(function(){
+        var single_qnt=$(this).val();
+        total_qnt+=parseInt(single_qnt);
     });
 
-    $("#total_price").text(total_price.toFixed(2));
+    $("#total_qnt").text(total_qnt);
+
+    $('.single_total').each(function(){
+        var single_total=$(this).val();
+        total_cart+=parseFloat($(this).val());
+    });
+
+    $("#total_cart").text("€ "+total_cart);
 
 }
