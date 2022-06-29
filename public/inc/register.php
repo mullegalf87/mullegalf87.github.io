@@ -1,38 +1,20 @@
 <?php
+
     session_start();
     require_once('connect_db.php');
     global $conn;
 
-    $error = "";
-    $emailErrorMsg = "";
-    $usernameErrorMsg = "";
-    $passwordErrorMsg = "";
-    $confirmPasswordErrorMsg = "";
     //The mysqli_real_escape_string() method helps to remove special characters from the string as they might cause malicious actions while performing query operations.
     $username = mysqli_real_escape_string($conn, $_POST["username"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
     $confirmPassword = mysqli_real_escape_string($conn, $_POST["confirm-password"]);
 
-    //controllo se i dati ci sono e sono corretti
-    if($username == ""){
-    $usernameErrorMsg = "Please enter your username";
-    }
-    if($email == ""){
-        $emailErrorMsg = "Please enter the email"; 
-    }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $emailErrorMsg = "Please enter a valid email";  
-    }
-    if($password == ""){
-        $passwordErrorMsg = "Enter your password";
-    }
-    if($confirmPassword == ""){
-        $confirmPasswordErrorMsg = "Enter confirm password";
-    }
-    if(strlen($password) < 6){
-        $passwordErrorMsg = "Enter a password greater than 6 characters";
-    }else if($password!=$confirmPassword){
-        $confirmPasswordErrorMsg = "Password and Confirm Password field should be same";
+    //controllo se la password corrisponde con il confirm password
+    if($password!=$confirmPassword){
+        $_SESSION["confirmPasswordErrorMsg"]="Password and Confirm Password field should be same";
+        header('location: /login'); 
+        exit;
     }
     
     //se il controllo è andato a buon fine e non ci sono errori

@@ -514,6 +514,7 @@
         <label>
             <?php 
                 // Use require quando il file è richiesto dall'applicazione.
+                // Use require_once, php controllerà che il file già esiste e se è così non lo include nuovamente
                 //Use include quando il file non è richiesto dall'applicazione and l'applicazione dovrebbe continuare fino a quando il file non è trovato.
 
                 //require
@@ -600,6 +601,8 @@
         <label>
                     
             <?php
+                //session_start() creates a session or resumes the current one based on a session identifier passed via a GET or POST request, or passed via a cookie.
+                //il session_start() si mette nella prima pagina che dichiara le variabili $_SESSION e anche nelle altre pagine dove le variabili $_SESSION verranno richiamate.
                 // una sessione viene usata per memorizzare informazioni in variabili(come se fosse una super variabile globale) e passarli tra le pagine e si setta prima dell'html tag
                 //per attribuire un valore ad una variabile session
                 $_SESSION["favcolor"]="red";
@@ -612,10 +615,10 @@
                 $_SESSION["favcolor"]="blue";
                 echo $_SESSION["favcolor"]."<br>";
 
-                // rimuove tutte le sessioni
+                // rimuove una sola session
                 session_unset();
 
-                // distrugge la sessione
+                // distrugge tutte le sessioni
                 session_destroy();
             ?>
             
