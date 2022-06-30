@@ -1,0 +1,21 @@
+#wages .border{
+    border-top: 1px solid black!important;
+    border-left: 1px solid black!important;
+}
+
+#wages .title{
+    font-size: 8px;
+    margin:0;
+    border-bottom: 1px solid black!important;
+    width: 100%;
+}
+
+#wages .subtitle{
+    font-size: 12px;
+    margin:3px 3px;
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+  }
+

@@ -17,11 +17,13 @@ session_start();
         <link rel='stylesheet' href='tpl/css/home.css'>
         <link rel='stylesheet' href='tpl/css/login.css'>
         <link rel='stylesheet' href='tpl/css/e-commerce.css'>
+        <link rel='stylesheet' href='tpl/css/wages.css'>
         <link rel='stylesheet' href='tpl/css/page_not_found.css'>
         <!-- js pages -->
         <script src="tpl/js/home.js"></script>
         <script src="tpl/js/login.js"></script>
         <script src="tpl/js/e-commerce.js"></script>
+        <script src="tpl/js/wages.js"></script>
         <script src="tpl/js/page_not_found.js"></script>
     </head>
     <body>
@@ -46,6 +48,7 @@ session_start();
                             <?php
                             if ($_SESSION["username"]) {
                                 echo '<a class="dropdown-item" href="/e-commerce">E-commerce</a>';
+                                echo '<a class="dropdown-item" href="/wages">Paghe</a>';
                                 echo '<a class="dropdown-item" href="inc/logout.php">Logout</a>';
                             }else{
                                 echo '<a class="dropdown-item" href="/login">Login</a>';
@@ -63,9 +66,20 @@ session_start();
                     include('tpl/login.tpl.php');
                 break;
                 case 'e-commerce':
+                    //questo perchè solo i loggati possono accedere all'e-commerce
                     if ($_SESSION["username"]) {
                         require('inc/e-commerce.php');
                         include('tpl/e-commerce.tpl.php');
+                    }else{
+                        require('inc/page_not_found.php');
+                        include('tpl/page_not_found.tpl.php');
+                    }
+                break;
+                case 'wages':
+                    //questo perchè solo i loggati possono accedere alle paghe
+                    if ($_SESSION["username"]) {
+                        require('inc/wages.php');
+                        include('tpl/wages.tpl.php');
                     }else{
                         require('inc/page_not_found.php');
                         include('tpl/page_not_found.tpl.php');
