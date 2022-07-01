@@ -4,7 +4,6 @@ $( document ).ready(function() {
 
 });
 
-
 $(document).on("click", ".subtitle" ,function(event){
  
     $(this).toggleClass('active');

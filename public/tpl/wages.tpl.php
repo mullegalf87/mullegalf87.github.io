@@ -6,7 +6,7 @@
         <div class="d-flex flex-nowrap">
             <div class="flex-grow-1 border">
                 <div class="w-100">
-                    <div><label class="title">Mese retribuito</label></div>
+                    <div><label class="title title_bold">Mese retribuito</label></div>
                     <div><label class="subtitle sub_1">Settembre 2019</label></div>
                 </div>
             </div>
@@ -36,13 +36,13 @@
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
-                    <div><label class="title">Codice lavoratore</label></div>
+                    <div><label class="title title_bold">Codice lavoratore</label></div>
                     <div><label class="subtitle sub_6">6</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
-                    <div><label class="title">Cognome e nome</label></div>
+                    <div><label class="title title_bold">Cognome e nome</label></div>
                     <div><label class="subtitle sub_7">Rosciglione Dario</label></div>
                 </div>
             </div>
@@ -169,6 +169,11 @@
         </div>
         <!-- fourth row -->
         <div class="d-flex flex-nowrap">
+            <div class="border">
+                <div class="w-100">
+                    <div><label class="title_bold" style="font-size: 10px;">Att. prec</label></div>
+                </div>
+            </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Paga base</label></div>
@@ -202,6 +207,11 @@
         </div>
         <!-- fifth row -->
         <div class="d-flex flex-nowrap">
+            <div class="border">
+                <div class="w-100">
+                    <div><label class="title_bold" style="font-size: 10px;">Att. prec</label></div>
+                </div>
+            </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">El.dis.san</label></div>
@@ -225,13 +235,12 @@
 
     <div id="body" class="d-flex flex-wrap mt-2">
 
-        <!-- first col -->
         <div class="d-flex flex-nowrap col-md-12 p-0">
-            <div class="d-flex flex-wrap col-md-8 p-0">
+            <div class="d-flex flex-wrap col-md-9 p-0">
                 <div class="d-flex flex-nowrap w-100">
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Codice</label></div>
+                            <div><label class="title title_bold">Codice</label></div>
                             <div><label class="subtitle">8002</label></div>
                             <div><label class="subtitle">15</label></div>
                             <div><label class="subtitle"></label></div>
@@ -257,7 +266,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Descrizione</label></div>
+                            <div><label class="title title_bold">Descrizione</label></div>
                             <div><label class="subtitle">Lavoro ordinario (giorni)</label></div>
                             <div><label class="subtitle">Straordinario</label></div>
                             <div><label class="subtitle"></label></div>
@@ -283,7 +292,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Ore/Giorni</label></div>
+                            <div><label class="title title_bold">Ore/Giorni</label></div>
                             <div><label class="subtitle">26.00</label></div>
                             <div><label class="subtitle">6.00</label></div>
                             <div><label class="subtitle"></label></div>
@@ -309,7 +318,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Base</label></div>
+                            <div><label class="title title_bold">Base</label></div>
                             <div><label class="subtitle">58.29000</label></div>
                             <div><label class="subtitle">11.27634</label></div>
                             <div><label class="subtitle"></label></div>
@@ -335,7 +344,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Competenze</label></div>
+                            <div><label class="title title_bold">Competenze</label></div>
                             <div><label class="subtitle">1515.54</label></div>
                             <div><label class="subtitle">67.66</label></div>
                             <div><label class="subtitle"></label></div>
@@ -361,7 +370,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Trattenute</label></div>
+                            <div><label class="title title_bold">Trattenute</label></div>
                             <div><label class="subtitle"></label></div>
                             <div><label class="subtitle"></label></div>
                             <div><label class="subtitle"></label></div>
@@ -387,7 +396,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Statistiche</label></div>
+                            <div><label class="title title_bold">Statistiche</label></div>
                             <div><label class="subtitle"></label></div>
                             <div><label class="subtitle"></label></div>
                             <div><label class="subtitle"></label></div>
@@ -415,7 +424,7 @@
                 <div class="d-flex flex-nowrap w-100 p-0 mt-2">
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Totale lordo</label></div>
+                            <div><label class="title title_bold">Totale lordo</label></div>
                             <div><label class="subtitle">1583.20</label></div>
                         </div>
                     </div>
@@ -457,7 +466,7 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Tot.Contr.soc</label></div>
+                            <div><label class="title title_bold">Tot.Contr.soc</label></div>
                             <div><label class="subtitle">145.48</label></div>
                         </div>
                     </div>
@@ -513,13 +522,162 @@
                     </div>
                     <div class="flex-grow-1 border">
                         <div class="w-100">
-                            <div><label class="title">Tot.contr.IRPEF.t.s</label></div>
+                            <div><label class="title title_bold">Tot.contr.IRPEF.t.s</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imp t.s.s arr a.p</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">%</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">IRPEF a.p</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Oneri deducibili</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imp. IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">IRPEF lorda</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Tot.detr</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title title_bold">Tot.trat.IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Acconto</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Rata prestito</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Res.prestito</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Tratt.sindac</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Covelco</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Arr.prec.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Tratt.corpo</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title title_bold">Tot.trattenute</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="border">
+                        <div class="w-100">
+                            <div><label class="title_bold" style="font-size: 10px;">Conguaglio fine anno cess.rapp.</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Progr.on.ded</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Progr.imp.IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imp.IRPEF.annuo</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Progr.detr.IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Progr.rit.IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Addizionale IRPEF</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Conguaglio IRPEF +/-</label></div>
                             <div><label class="subtitle"></label></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="d-flex flex-nowrap col-md-4 p-0">
+            <div class="d-flex flex-nowrap col-md-3 p-0">
                 <div class="border">
                     <div class="w-100">
                         <div><label class="title">Giorno</label></div>
@@ -592,7 +750,7 @@
                         <div><label class="subtitle"></label></div>
                     </div>
                 </div>
-                <div class="flex-grow-1 border">
+                <div class="border">
                     <div class="w-100">
                         <div><label class="title">Sigla</label></div>
                         <div><label class="subtitle"></label></div>
@@ -670,7 +828,403 @@
 
     <div id="footer">
         
-        
+        <div class="d-flex flex-nowrap col-md-12 p-0">
+            <div class="d-flex flex-wrap col-md-9 p-0">
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">IRPEF erario</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Add.regionale</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Add.comunale</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Arr.attuale</label></div>
+                            <div><label class="subtitle">0.77</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Netto busta</label></div>
+                            <div><label class="subtitle">1250.00</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ferie a.p.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ferie mat.</label></div>
+                            <div><label class="subtitle">35.00</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ferie god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fer.res.</label></div>
+                            <div><label class="subtitle">35.00</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Perm.mat.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Perm.god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Perm.res.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">ROL a.p.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">ROL mat.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Perm.god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Perm.res.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fest. a.p.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fest. mat.</label></div>
+                            <div><label class="subtitle">6.67</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fest. god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fest.res.</label></div>
+                            <div><label class="subtitle">6.67</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fless.a.p.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fless.mat.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fless.god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Fless.res.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">B.ore a.p.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">B.ore mat.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">B.ore god.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">B.ore res.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="border">
+                        <div class="w-100">
+                            <div><label class="title_bold" style="font-size: 10px;">Dati statistici</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Q/INPS</label></div>
+                            <div><label class="subtitle">2</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">POS</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Sett</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ore INPS</label></div>
+                            <div><label class="subtitle">130</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Gg INPS</label></div>
+                            <div><label class="subtitle">26</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Gg minim.</label></div>
+                            <div><label class="subtitle">30</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ore INAIL</label></div>
+                            <div><label class="subtitle">130</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Gg INAIL</label></div>
+                            <div><label class="subtitle">21</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imponibile INAIL</label></div>
+                            <div><label class="subtitle">1583.00</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imponibile Silicosi</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">TFR mese</label></div>
+                            <div><label class="subtitle">117.27</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="border">
+                        <div class="w-100">
+                            <div><label class="title_bold" style="font-size: 10px;">Detrazioni spettanti</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Lavoro dip.</label></div>
+                            <div><label class="subtitle">154.52</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Coniuge</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Figli</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Altri carichi</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Oneri</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Ulteriore detraz.</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Diff. minori</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">diff. apprendisti</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="border">
+                        <div class="w-100">
+                            <div><label class="title_bold" style="font-size: 10px;">Progres.annui</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imponibile INAIL</label></div>
+                            <div><label class="subtitle">4089.00</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imp.contrib.soc</label></div>
+                            <div><label class="subtitle">4089.00</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Contrib.soc</label></div>
+                            <div><label class="subtitle">375.78</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Oneri deducibili</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Imponibile IRPEF</label></div>
+                            <div><label class="subtitle">3713.90</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">IRPEF lorda</label></div>
+                            <div><label class="subtitle">865.55</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Tot detr</label></div>
+                            <div><label class="subtitle">777.75</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">IRPEF pagata</label></div>
+                            <div><label class="subtitle">190.67</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">C/C</label></div>
+                            <div><label class="subtitle">IT12312312312312311231</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Banca accredito</label></div>
+                            <div><label class="subtitle">Unicredit</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Firma</label></div>
+                            <div><label class="subtitle"></label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap col-md-3 p-0">
+                <div class="d-flex flex-nowrap w-100">
+                    <div class="border">
+                        <div class="w-100">
+                            <div><label class="title">Sigla</label></div>
+                            <div><label class="subtitle">S</label></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 border">
+                        <div class="w-100">
+                            <div><label class="title">Descrizione</label></div>
+                            <div><label class="subtitle">Straordinario diurno in turno</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 

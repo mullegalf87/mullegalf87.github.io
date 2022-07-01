@@ -10,12 +10,16 @@
     width: 100%;
 }
 
+#wages .title_bold{
+    font-weight:900;
+}
+
 #wages .subtitle{
     font-size: 12px;
     margin:3px 3px;
 }
 
 [contenteditable]:focus {
-    outline: 0px solid transparent;
+    outline: 1px solid transparent;
   }
 
