@@ -2,6 +2,69 @@
     <h1>Paghe<h1>
 
     <div id="header">
+        <!-- zero row -->
+        <div class="d-flex flex-nowrap">
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Codice azienda</label></div>
+                    <div><label class="subtitle sub_1">3007</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Codice filiale</label></div>
+                    <div><label class="subtitle sub_2">1</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Ragione sociale</label></div>
+                    <div><label class="subtitle sub_3">Prog</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Matr.inps.azienda</label></div>
+                    <div><label class="subtitle sub_4">5528587697</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Posizione Inail</label></div>
+                    <div><label class="subtitle sub_5">95357460 75</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title title_bold">Address</label></div>
+                    <div><label class="subtitle sub_6">via la farina</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title title_bold">C.F.</label></div>
+                    <div><label class="subtitle sub_7">06679720828</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Data assunzione</label></div>
+                    <div><label class="subtitle sub_8">02/04/19</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Data scadenza</label></div>
+                    <div><label class="subtitle sub_9">03/04/19</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Scatti anzianità</label></div>
+                    <div><label class="subtitle sub_10">05/22</label></div>
+                </div>
+            </div>
+        </div>
         <!-- first row -->
         <div class="d-flex flex-nowrap">
             <div class="flex-grow-1 border">
