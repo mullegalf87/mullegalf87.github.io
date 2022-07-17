@@ -1,9 +1,38 @@
 <div class="p-3" id="wages">
     <h1>Paghe<h1>
+    <ul style="font-size:12px;">Relazioni tabelle:
+        <ol>-Header busta paga
+            <li>Tabella enterprise (id_enterprise)</li>
+            <li>Tabella contract (id_contract)</li>
+            <li>Tabella contract_detail (id_contract_detail)</li>
+            <li>Tabella worker (id_worker) collegato con id_enterprise, id_contract, id_contract_detail</li>
+        </ol>
+        <ol>-Calendario presenze
+            <li>Tabella calendar (id_calendar) collegato con tabella worker (id_worker)</li>
+        </ol>
+        <ol>-Body busta paga
+            <li>Tabella code (id_code)</li>
+            <li>Tabella body (id_body) collegato con tabella calendar (id_calendar), tabella code (id_code)</li>
+        </ol>
+        <ol>-Footer (calcoli) busta paga
+            <li>Tabella footer (id_footer) collegato con tabella body (id_body)</li>
+        </ol>
+    </ul>
+    <ul style="font-size:12px;">
+        <li>Cose da fare:</li>
+        <li>Stabilire colonne per ogni tabella</li>
+    </ul>
+
 
     <div id="header">
         <!-- zero row -->
         <div class="d-flex flex-nowrap">
+        <div class="flex-grow-1 border">
+            <div class="w-100">
+                <div><label class="title title_bold">Mese retribuito</label></div>
+                <div><label class="subtitle sub_1">Settembre 2019</label></div>     
+            </div>
+        </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice azienda</label></div>
@@ -46,57 +75,9 @@
                     <div><label class="subtitle sub_7">06679720828</label></div>
                 </div>
             </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Data assunzione</label></div>
-                    <div><label class="subtitle sub_8">02/04/19</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Data scadenza</label></div>
-                    <div><label class="subtitle sub_9">03/04/19</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Scatti anzianità</label></div>
-                    <div><label class="subtitle sub_10">05/22</label></div>
-                </div>
-            </div>
         </div>
         <!-- first row -->
         <div class="d-flex flex-nowrap">
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title title_bold">Mese retribuito</label></div>
-                    <div><label class="subtitle sub_1">Settembre 2019</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Codice azienda</label></div>
-                    <div><label class="subtitle sub_2">3007</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Codice filiale</label></div>
-                    <div><label class="subtitle sub_3">1</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Matr.inps.azienda</label></div>
-                    <div><label class="subtitle sub_4">5528587697</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Posizione Inail</label></div>
-                    <div><label class="subtitle sub_5">95357460 75</label></div>
-                </div>
-            </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title title_bold">Codice lavoratore</label></div>
@@ -109,27 +90,6 @@
                     <div><label class="subtitle sub_7">Rosciglione Dario</label></div>
                 </div>
             </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Data assunzione</label></div>
-                    <div><label class="subtitle sub_8">02/04/19</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Data scadenza</label></div>
-                    <div><label class="subtitle sub_9">03/04/19</label></div>
-                </div>
-            </div>
-            <div class="flex-grow-1 border">
-                <div class="w-100">
-                    <div><label class="title">Scatti anzianità</label></div>
-                    <div><label class="subtitle sub_10">05/22</label></div>
-                </div>
-            </div>
-        </div>
-        <!-- second row -->
-        <div class="d-flex flex-nowrap">
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice fiscale</label></div>
@@ -146,6 +106,27 @@
                 <div class="w-100">
                     <div><label class="title">Data di nascita</label></div>
                     <div><label class="subtitle sub_3">04/10/87</label></div>
+                </div>
+            </div>
+        </div>
+        <!-- second row -->
+        <div class="d-flex flex-nowrap">
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Data assunzione</label></div>
+                    <div><label class="subtitle sub_8">02/04/19</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Data scadenza</label></div>
+                    <div><label class="subtitle sub_9">03/04/19</label></div>
+                </div>
+            </div>
+            <div class="flex-grow-1 border">
+                <div class="w-100">
+                    <div><label class="title">Scatti anzianità</label></div>
+                    <div><label class="subtitle sub_10">05/22</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
@@ -255,15 +236,15 @@
                     <div><label class="subtitle sub_3">2.07</label></div>
                 </div>
             </div>
-            <div class="flex-grow-1 border">
+            <div class="flex-grow-1 border_red">
                 <div class="w-100">
-                    <div><label class="title">Retr.oraria contr.</label></div>
+                    <div><label class="title">Retr.oraria contr.(retribuzione di fatto / ore contributi)</label></div>
                     <div><label class="subtitle sub_4">9.02107</label></div>
                 </div>
             </div>
-            <div class="flex-grow-1 border">
+            <div class="flex-grow-1 border_red">
                 <div class="w-100">
-                    <div><label class="title">Retr.giorn.contr.</label></div>
+                    <div><label class="title">Retr.giorn.contr.(retribuzione di fatto / giorni contributi)</label></div>
                     <div><label class="subtitle sub_5">58.29</label></div>
                 </div>
             </div>
@@ -287,9 +268,9 @@
                     <div><label class="subtitle sub_2">4.53</label></div>
                 </div>
             </div>
-            <div class="flex-grow-1 border">
+            <div class="flex-grow-1 border_red">
                 <div class="w-100">
-                    <div><label class="title">Retrib.di fatto</label></div>
+                    <div><label class="title">Retrib.di fatto(paga base + contingenza + III elemento + el.dis.bil)</label></div>
                     <div><label class="subtitle sub_3">1515.54</label></div>
                 </div>
             </div>

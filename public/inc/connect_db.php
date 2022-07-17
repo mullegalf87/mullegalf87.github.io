@@ -3,7 +3,7 @@
     $servername="127.0.0.1";
     $username="root";
     $password="AklkOodX0Rc7LVvs";
-    $db="test";
+    $db="homelav";
     $conn=new mysqli($servername, $username, $password, $db);
 
     function connect_db(){

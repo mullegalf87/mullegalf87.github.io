@@ -20,7 +20,7 @@
 
         global $conn;
 
-        $query = "SELECT * FROM test_php";
+        $query = "SELECT * FROM ecommerce";
 
         if (mysqli_query($conn, $query)) {
             $result = $conn->query($query);  
@@ -40,7 +40,7 @@
         $data_column=$_GET["data_column"];
         $data_value=$_GET["data_value"];
 
-        $query = "INSERT INTO test_php (".$data_column.") VALUES (".$data_value.")";
+        $query = "INSERT INTO ecommerce (".$data_column.") VALUES (".$data_value.")";
     
         if (mysqli_query($conn, $query)) {
             $id_prod = $conn->insert_id;
@@ -72,7 +72,7 @@
            
         }
 
-        $query = "UPDATE test_php SET ";
+        $query = "UPDATE ecommerce SET ";
         foreach ($value as $column => $values) {
             $query .= $column."=".$values.", ";
         }
@@ -93,7 +93,7 @@
         global $conn;
         $id_prod=$_GET["id_prod"];
 
-        $query = "DELETE FROM test_php WHERE id=".$id_prod."";
+        $query = "DELETE FROM ecommerce WHERE id=".$id_prod."";
 
         if (mysqli_query($conn, $query)) {
             $result = array("id_prod"=>$id_prod, "type_query"=>"delete_prod");
