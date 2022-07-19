@@ -1,27 +1,9 @@
 <div class="p-3" id="wages">
     <h1>Paghe<h1>
     <ul style="font-size:12px;">Relazioni tabelle:
-        <ol>-Header busta paga
-            <li>Tabella enterprise (id_enterprise)</li>
-            <li>Tabella contract (id_contract)</li>
-            <li>Tabella contract_detail (id_contract_detail)</li>
-            <li>Tabella worker (id_worker) collegato con id_enterprise, id_contract, id_contract_detail</li>
-        </ol>
-        <ol>-Calendario presenze
-            <li>Tabella calendar (id_calendar) collegato con tabella worker (id_worker)</li>
-        </ol>
-        <ol>-Body busta paga
-            <li>Tabella code (id_code)</li>
-            <li>Tabella body (id_body) collegato con tabella calendar (id_calendar), tabella code (id_code)</li>
-        </ol>
-        <ol>-Footer (calcoli) busta paga
-            <li>Tabella footer (id_footer) collegato con tabella body (id_body)</li>
-        </ol>
+       <li>Sistemare salvataggio dati</li>
     </ul>
-    <ul style="font-size:12px;">
-        <li>Cose da fare:</li>
-        <li>Stabilire colonne per ogni tabella</li>
-    </ul>
+
 
 
     <div id="header">
@@ -36,43 +18,43 @@
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice azienda</label></div>
-                    <div><label class="subtitle sub_1">3007</label></div>
+                    <div><label class="subtitle sub_1" tab="enterprise" col="id">3007</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice filiale</label></div>
-                    <div><label class="subtitle sub_2">1</label></div>
+                    <div><label class="subtitle sub_2" tab="enterprise" col="branch_code">1</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Ragione sociale</label></div>
-                    <div><label class="subtitle sub_3">Prog</label></div>
+                    <div><label class="subtitle sub_3" tab="enterprise" col="name">Prog</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Matr.inps.azienda</label></div>
-                    <div><label class="subtitle sub_4">5528587697</label></div>
+                    <div><label class="subtitle sub_4" tab="enterprise" col="matr_inps">5528587697</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Posizione Inail</label></div>
-                    <div><label class="subtitle sub_5">95357460 75</label></div>
+                    <div><label class="subtitle sub_5" tab="enterprise" col="pos_inail">95357460 75</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title title_bold">Address</label></div>
-                    <div><label class="subtitle sub_6">via la farina</label></div>
+                    <div><label class="subtitle sub_6" tab="enterprise" col="address">via la farina</label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title title_bold">C.F.</label></div>
-                    <div><label class="subtitle sub_7">06679720828</label></div>
+                    <div><label class="subtitle sub_7" tab="enterprise" col="c_f">06679720828</label></div>
                 </div>
             </div>
         </div>

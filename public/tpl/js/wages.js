@@ -12,8 +12,8 @@ $(document).on("keyup", ".subtitle" ,function(event){
 
     $(this).toggleClass('active');
     
-    var table=".table";
-    var column=".column";
+    var table=$(this).attr('tab');
+    var column=$(this).attr('col');
     var value=$(this).text();
 
     x_timer = setTimeout(function(){
@@ -24,10 +24,18 @@ $(document).on("keyup", ".subtitle" ,function(event){
 
 });
 
-function save_subtitle(table, column, value){
+function save_subtitle(tab, col, val){
 
-    console.log(table);
-    console.log(column);
-    console.log(value);
+    var type_query="save_date";
+
+    $.ajax({
+        data: {type_query:type_query, tab:tab, col:col, val:val},
+        type: 'GET',
+        url: '/inc/wages.php',
+        success: function(array){
+            console.log(array)
+        }
+
+    });
 
 }
