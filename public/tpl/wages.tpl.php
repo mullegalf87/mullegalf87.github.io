@@ -4,57 +4,55 @@
        <li>Sistemare salvataggio dati</li>
     </ul>
 
-
-
     <div id="header">
         <!-- zero row -->
         <div class="d-flex flex-nowrap">
         <div class="flex-grow-1 border">
             <div class="w-100">
                 <div><label class="title title_bold">Mese retribuito</label></div>
-                <div><label class="subtitle sub_1">Settembre 2019</label></div>     
+                <div><label class="subtitle sub_0">Settembre 2019</label></div>     
             </div>
         </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice azienda</label></div>
-                    <div><label class="subtitle sub_1" tab="enterprise" col="id">3007</label></div>
+                    <div><label class="subtitle sub_1" id="id" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice filiale</label></div>
-                    <div><label class="subtitle sub_2" tab="enterprise" col="branch_code">1</label></div>
+                    <div><label class="subtitle sub_2" id="branch_code" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Ragione sociale</label></div>
-                    <div><label class="subtitle sub_3" tab="enterprise" col="name">Prog</label></div>
+                    <div><label class="subtitle sub_3" id="name" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Matr.inps.azienda</label></div>
-                    <div><label class="subtitle sub_4" tab="enterprise" col="matr_inps">5528587697</label></div>
+                    <div><label class="subtitle sub_4" id="matr_inps" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Posizione Inail</label></div>
-                    <div><label class="subtitle sub_5" tab="enterprise" col="pos_inail">95357460 75</label></div>
+                    <div><label class="subtitle sub_5" id="pos_inail" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title title_bold">Address</label></div>
-                    <div><label class="subtitle sub_6" tab="enterprise" col="address">via la farina</label></div>
+                    <div><label class="subtitle sub_6" id="address" tab="enterprise"></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title title_bold">C.F.</label></div>
-                    <div><label class="subtitle sub_7" tab="enterprise" col="c_f">06679720828</label></div>
+                    <div><label class="subtitle sub_7" id="c_f" tab="enterprise"></label></div>
                 </div>
             </div>
         </div>

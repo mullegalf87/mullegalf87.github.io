@@ -1,57 +1,55 @@
 <?php
-
+    session_start();
     require('connect_db.php');
     
-    $function_query=$_GET["type_query"];
+    $function_query=$_GET["type_query"] ? $_GET["type_query"] : 'get_data';
     
     $function_query();
 
+    function get_data(){
+
+        global $dbConn;
+        $tab=$_GET["tab"] ? $_GET["tab"] : 'enterprise';
+        $col=$_GET["col"] ? $_GET["col"] : 'branch_code';
+        $val=$_GET["val"] ? $_GET["val"] : '1';
+
+        $query = "SELECT * FROM ".$tab." WHERE ".$col."=".$val." AND id_user=".$_SESSION["id_user"]."";
+        $rsenterprise = queryPrepare($dbConn, $query);
+        queryExecute($rsenterprise);
+        if (!queryNumRows($rsenterprise)){
+            $query = "INSERT INTO ".$tab." (".$col.",id_user) VALUES (".$val.",".$_SESSION["id_user"].")";
+            $insertenterprise = queryPrepare($dbConn, $query);
+            queryExecute($insertenterprise);
+        }
+
+        $query = "SELECT * FROM ".$tab." WHERE ".$col."=".$val." AND id_user=".$_SESSION["id_user"]."";
+        $rsenterprise = queryPrepare($dbConn, $query);
+        queryExecute($rsenterprise);
+        if (queryNumRows($rsenterprise)){
+            if ($rsDataEnterprise = resultFetchAssoc($rsenterprise)){
+
+                $GLOBALS['id_enterprise'] = $rsDataEnterprise["id"];
+                $GLOBALS['branchcode_enterprise'] = $rsDataEnterprise["branch_code"];
+                $GLOBALS['name_enterprise'] = $rsDataEnterprise["name"];
+                $GLOBALS['matrinps_enterprise'] = $rsDataEnterprise["matr_inps"];
+                $GLOBALS['posinail_enterprise'] = $rsDataEnterprise["pos_inail"];
+                $GLOBALS['address_enterprise'] = $rsDataEnterprise["address"];
+                $GLOBALS['cf_enterprise'] = $rsDataEnterprise["c_f"];
+
+            }
+            echo json_encode($rsDataEnterprise);
+        }
+
+    }
+
     function save_data(){
+ 
         global $conn;
         $tab=$_GET["tab"];
         $col=$_GET["col"];
         $val=$_GET["val"];
 
-        if ($col=="id") {
-
-            $query = "SELECT * FROM ".$tab." WHERE ".$col."=".$val."";
-
-            if (mysqli_query($conn, $query)) {
-                $result = $conn->query($query);  
-                $result = $result->fetch_all(MYSQLI_ASSOC);
-                $exist=count($result)>0;
-            } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-            
-        }
-
-        if ($exist) {
-            print_r("update");
-        }else{
-            print_r("insert");
-        }
-
-
     }
-
-    // function get_prod(){
-
-    //     global $conn;
-
-    //     $query = "SELECT * FROM ecommerce";
-
-    //     if (mysqli_query($conn, $query)) {
-    //         $result = $conn->query($query);  
-    //         $result = $result->fetch_all(MYSQLI_ASSOC);
-    //         return $result;
-    //     } else {
-    //         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    //     }
-        
-    //     mysqli_close($conn);
-
-    // }
 
     // function add_prod(){
 

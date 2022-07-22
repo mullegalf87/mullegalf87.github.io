@@ -78,7 +78,7 @@ session_start();
                 case 'wages':
                     //questo perchè solo i loggati possono accedere alle paghe
                     if ($_SESSION["username"]) {
-                        require('inc/wages.php');
+                        // require('inc/wages.php');
                         include('tpl/wages.tpl.php');
                     }else{
                         require('inc/page_not_found.php');
