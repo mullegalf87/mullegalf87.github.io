@@ -16,7 +16,7 @@
             <div class="flex-grow-1 border">
                 <div class="w-100">
                     <div><label class="title">Codice azienda</label></div>
-                    <div><label class="subtitle sub_1" id="id" tab="enterprise"></label></div>
+                    <div><label class="subtitle sub_1"><?php echo $_SESSION["id_user"];?></label></div>
                 </div>
             </div>
             <div class="flex-grow-1 border">
